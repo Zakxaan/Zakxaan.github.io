@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Download Timer</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f8f9fa;
+    }
+    .timer {
+      text-align: center;
+    }
+    #download-button {
+      display: none;
+      margin-top: 20px;
+    }
+  </style>
+  <script>
+    let countdown = 15;
+    function startTimer() {
+      const timer = document.getElementById("timer");
+      const button = document.getElementById("download-button");
+      const interval = setInterval(() => {
+        timer.textContent = ` Step(1/2) Please wait ${countdown} seconds...`;
+        countdown--;
+        if (countdown < 0) {
+          clearInterval(interval);
+          timer.style.display = "none";
+          button.style.display = "block";
+        }
+      }, 1000);
+    }
+  </script>
+</head>
+<body onload="startTimer()">
+  <div class="timer">
+    <p id="timer">Please wait 15 seconds...</p>
+    <a href="timer2.html" id="download-button" class="btn btn-dark">Step 2</a>
+  </div>
+</body>
+</html>

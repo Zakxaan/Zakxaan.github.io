@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Final Download</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f8f9fa;
+    }
+    .timer {
+      text-align: center;
+    }
+    #download-link {
+      display: none;
+      margin-top: 20px;
+    }
+  </style>
+  <script>
+    let countdown = 15;
+    function startTimer() {
+      const timer = document.getElementById("timer");
+      const link = document.getElementById("download-link");
+      const interval = setInterval(() => {
+        timer.textContent = `Step(2/2) Please wait ${countdown} seconds...`;
+        countdown--;
+        if (countdown < 0) {
+          clearInterval(interval);
+          timer.style.display = "none";
+          link.style.display = "block";
+        }
+      }, 1000);
+    }
+  </script>
+</head>
+<body onload="startTimer()">
+  <div class="timer">
+    <p id="timer">Please wait 15 seconds...</p>
+    <a href="https://mega.nz/file/JqwAgYSQ#xVqOD7ziaWhvdjLbcDD_18MuSSInMio1JqukfYBunk8" id="download-link" class="btn btn-dark">Click to Download</a>
+  </div>
+</body>
+</html>
