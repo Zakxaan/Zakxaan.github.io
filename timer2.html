@@ -11,13 +11,58 @@
       align-items: center;
       height: 100vh;
       background-color: #f8f9fa;
+      font-family: Arial, sans-serif;
     }
-    .timer {
+
+    .timer-container {
       text-align: center;
     }
+
+    .loading-animation {
+      display: inline-block;
+      width: 50px;
+      height: 50px;
+      border: 4px solid #ccc;
+      border-top: 4px solid #007bff;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin: 10px auto;
+    }
+
+    @keyframes spin {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .instructions {
+      margin-bottom: 10px;
+      font-size: 18px;
+      color: #333;
+    }
+
+    .hold-tight {
+      font-size: 16px;
+      font-weight: bold;
+      color: #007bff;
+      margin-top: 10px;
+    }
+
     #download-link {
       display: none;
       margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+
+    #download-link:hover {
+      background-color: #0056b3;
     }
   </style>
   <script>
@@ -25,22 +70,30 @@
     function startTimer() {
       const timer = document.getElementById("timer");
       const link = document.getElementById("download-link");
+      const animation = document.querySelector(".loading-animation");
+      const holdTight = document.querySelector(".hold-tight");
+
       const interval = setInterval(() => {
-        timer.textContent = `Step(2/2) Please wait ${countdown} seconds...`;
+        timer.textContent = `Step (2/2): Please wait ${countdown} seconds...`;
         countdown--;
         if (countdown < 0) {
           clearInterval(interval);
           timer.style.display = "none";
-          link.style.display = "block";
+          animation.style.display = "none";
+          holdTight.style.display = "none";
+          link.style.display = "inline-block";
         }
       }, 1000);
     }
   </script>
 </head>
 <body onload="startTimer()">
-  <div class="timer">
+  <div class="timer-container">
+    <p class="instructions">Go through this final step to access your download</p>
+    <div class="loading-animation"></div>
+    <p class="hold-tight">Hold tight!</p>
     <p id="timer">Please wait 15 seconds...</p>
-    <a href="https://mega.nz/file/JqwAgYSQ#xVqOD7ziaWhvdjLbcDD_18MuSSInMio1JqukfYBunk8" id="download-link" class="btn btn-dark">Click to Download</a>
+    <a href="https://mega.nz/file/JqwAgYSQ#xVqOD7ziaWhvdjLbcDD_18MuSSInMio1JqukfYBunk8" id="download-link">Click to Download</a>
   </div>
 </body>
 </html>
