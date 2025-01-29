@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Download Timer</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f8f9fa;
+      font-family: Arial, sans-serif;
+    }
+
+    .timer-container {
+      text-align: center;
+    }
+
+    .loading-animation {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      border: 4px solid #ccc;
+      border-top: 4px solid #007bff;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin: 20px auto;
+    }
+
+    @keyframes spin {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .instructions {
+      margin-bottom: 20px;
+      font-size: 16px;
+      color: #333;
+    }
+
+    #download-button {
+      display: none;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+
+    #download-button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+  <script>
+    let countdown = 15;
+    function startTimer() {
+      const timer = document.getElementById("timer");
+      const button = document.getElementById("download-button");
+      const animation = document.querySelector(".loading-animation");
+
+      const interval = setInterval(() => {
+        timer.textContent = `Step (1/2): Please wait ${countdown} seconds...`;
+        countdown--;
+        if (countdown < 0) {
+          clearInterval(interval);
+          timer.style.display = "none";
+          animation.style.display = "none";
+          button.style.display = "inline-block";
+        }
+      }, 1000);
+    }
+  </script>
+</head>
+<body onload="startTimer()">
+  <div class="timer-container">
+    <p class="instructions">Go through these two steps to unlock the link</p>
+    <div class="loading-animation"></div>
+    <p id="timer">Please wait 15 seconds...</p>
+    <a href="timer3.html" id="download-button">Step 2</a>
+  </div>
+</body>
+</html>
