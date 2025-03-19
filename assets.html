@@ -12,7 +12,7 @@
             --bg-dark: #121212;
             --text-light: #121212;
             --text-dark: #f5f5f5;
-            --accent: #d70da8;
+            --accent: #0dd710;
             --accent-hover: #000000;
             --border-light: #e0e0e0;
             --border-dark: #333333;
@@ -181,16 +181,14 @@
     transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
-/* Make the Image Square and Bigger */
+/* Make the Image Circular */
 .hero-image img {
-    width: 500px;  /* Adjust the size as needed */
-    height: 500px; /* Ensures the image is a square */
-    object-fit: cover; /* Prevents stretching, keeps aspect ratio */
-    border-radius: 5px; /* Slightly rounded corners */
-    border: 2px solid #d70da8; /* Adjust thickness and color */
+    width: 350px;  /* Adjust size as needed */
+    height: 350px; /* Keep it square for a perfect circle */
+    object-fit: cover; /* Prevents stretching */
+    border-radius: 50%; /* Makes it a perfect circle */
+    border: 3px solid var(--accent); /* Optional: Adds a border */
 }
-
-
         
         .profile-image {
             width: 280px;
@@ -226,7 +224,6 @@
         
         .section-title {
             text-align: center;
-            margin-top: 80px;
             font-size: 2rem;
             margin-bottom: 3rem;
             position: relative;
@@ -488,57 +485,43 @@
 
         /* Card Styles */
         .card {
-            background-color: #d70da8; /* Red color */
-            color: white;
-            border-radius: 10px;
-            overflow: hidden;
-            height: 350px; /* Bigger card */
-            opacity: 0; /* Initially hidden */
-            transform: translateY(50px) scale(1); /* Start normal size */
-            transition: opacity 0.8s ease-out, transform 0.4s ease-out, box-shadow 0.4s ease-in-out;
-            display: flex;
-            flex-direction: column;
-        }
+    background-color: #0dd710; /* Red color */
+    border-radius: 10px;
+    overflow: hidden;
+    height: 350px; /* Bigger card */
+    opacity: 0; /* Initially hidden */
+    transform: translateY(50px) scale(1); /* Start normal size */
+    transition: opacity 0.8s ease-out, transform 0.4s ease-out, box-shadow 0.4s ease-in-out;
+    display: flex;
+    flex-direction: column;
+}
 
-        /* Make card visible when scrolled */
-        .card.show {
-            opacity: 1;
-            transform: translateY(0) scale(1);
-        }
+/* Make card visible when scrolled */
+.card.show {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
 
-        /* Hover Effect - Full Card Zoom */
-        .card:hover {
-            transform: scale(1.05) !important; /* Make sure it zooms */
-            opacity: 1;
-            box-shadow: 0px 10px 25px #d70da8(255, 0, 0, 0.6); /* Red glow */
-        }
+/* Hover Effect - Full Card Zoom */
+.card:hover {
+    transform: scale(1.05) !important; /* Make sure it zooms */
+    opacity: 1;
+    box-shadow: 0px 10px 25px rgba(13, 215, 16, 0.6); /* Green glow */
+ /* Red glow */
+}
 
-        /* Image Styling */
-        .card img {
-            width: 100%;
-            height: 270px; /* Bigger image */
-            object-fit: cover;
-        }
+/* Image Styling */
+.card img {
+    width: 100%;
+    height: 100%; /* Fill entire card */
+    object-fit: cover; /* Prevents stretching */
+}
 
-        /* Card Body (Smaller Text Area) */
-        .card-body {
-            padding: 10px;
-            height: 80px; /* Reduced text area */
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
+/* Hide the text area */
+.card-body {
+    display: none; /* Hides title and text */
+}
 
-        .card-title {
-            font-size: 14px;
-            margin: 0;
-        }
-
-        .card-text {
-            font-size: 12px;
-            margin: 5px 0 0;
-            color: #fff; /* White text for contrast */
-        }
 
         /* Responsive - Make it 2 per row on smaller screens */
         @media (max-width: 900px) {
@@ -608,11 +591,9 @@
                 grid-template-columns: 1fr;
             }
         }
-
-            ::-webkit-scrollbar {
+        ::-webkit-scrollbar {
                 display: none;
         }
-
     </style>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -627,49 +608,323 @@
                     <a href="scenepack.html">Scenepacks</a>
                     <a href="comp.html">Comps</a>
                     <a href="Feed.html">Feed</a>
-                    <a href="assets.html">Assets</a>
+                    <a href="assets.html" class="active">Assets</a>
                     <a href="contact.html">Contact Me</a>
-                    <a href="donate.html" class="active">Donate Me</a>
+                    <a href="donate.html">Donate Me</a>
                 </nav>
             </div>
         </header>
-
-        <h2 class="section-title">Support Me</h2>
-
+        
         <main>
             <section class="hero">
                 <div class="hero-content">
-                    <p class="hero-description" style="text-align: center; font-size: 18px; margin-bottom: 20px;">
-                        <strong>Any donations would mean a lot to me and motivate me to create more content for you guys :)</strong>
-                    </p>
-            
-                    <hr style="border: 0.5px solid var(--accent); width: 60%; margin: 15px auto; opacity: 0.5;">
-            
-                    <!-- Donation Options -->
-                    <p class="hero-description"><strong>💖 Support Me with a Donation:</strong></p>
-            
-                    <div class="donation-options">
-                        <p style="margin-bottom: 15px;"><strong>💳 Bank Transfer:</strong></p> 
-                        <p style="line-height: 1.6;">
-                            <span style="color: var(--accent);"><strong>Bank Name:</strong></span> XYZ Bank<br>
-                            <span style="color: var(--accent);"><strong>Account Number:</strong></span> 1234 5678 9012<br>
-                            <span style="color: var(--accent);"><strong>SWIFT Code:</strong></span> XYZ123
-                        </p>
-            
-                        <hr style="border: 0.5px solid var(--accent); width: 60%; margin: 20px auto; opacity: 0.5;">
-            
-                        <p style="margin-bottom: 15px;"><strong>₿ Crypto Donations:</strong></p> 
-                        <p style="line-height: 1.6;">
-                            <span style="color: var(--accent);"><strong>BTC Wallet:</strong></span> <code>bc1qxyz12345abcde</code> <br>
-                            <span style="color: var(--accent);"><strong>ETH Wallet:</strong></span> <code>0xabc123456789xyz</code>
-                        </p>
-                    </div>
+                    <p class="hero-description">All Content Which Was Provided Here Doesn't Belong To Me (Except My CC) Credit Goes To There Respective <span style="color: var(--accent);">Owners</span></p>
                 </div>
                 <div class="hero-image">
                     <img src="https://flizzyr7.com/images/icon.webp" alt="Flizzyr Logo" class="profile-image">
                 </div>
             </section>
-            
+
+            <section class="scenepack-section">
+                <h2 class="section-title">My CC</h2>
+
+                <div class="card-container">
+            <!-- ScenePack 1 -->
+            <a href="#" class="card">
+                <img src="" alt="Scene 1">
+                <div class="card-body">
+                    <h5 class="card-title">CC 1</h5>
+                    <p class="card-text">Cinematic clips.</p>
+                </div>
+            </a>
+
+            <!-- ScenePack 2 -->
+            <a href="#" class="card">
+                <img src="" alt="Scene 2">
+                <div class="card-body">
+                    <h5 class="card-title">CC 2</h5>
+                    <p class="card-text">Another collection.</p>
+                </div>
+            </a>
+
+            <!-- ScenePack 3 -->
+            <a href="#" class="card">
+                <img src="images/pack3.webp" alt="Scene 3">
+                <div class="card-body">
+                    <h5 class="card-title">CC 3</h5>
+                    <p class="card-text">More cinematic beauty.</p>
+                </div>
+            </a>
+
+            <!-- ScenePack 4 -->
+            <a href="#" class="card">
+                <img src="images/pack4.webp" alt="Scene 4">
+                <div class="card-body">
+                    <h5 class="card-title">CC 4</h5>
+                    <p class="card-text">More cinematic beauty.</p>
+                </div>
+            </a>
+
+            <!-- ScenePack 5 -->
+            <a href="#" class="card">
+                <img src="images/pack5.webp" alt="Scene 5">
+                <div class="card-body">
+                    <h5 class="card-title">CC 5</h5>
+                    <p class="card-text">More cinematic beauty.</p>
+                </div>
+            </a>
+        </div>
+
+        <section class="scenepack-section">
+            <h2 class="section-title">SFX</h2>
+
+            <div class="card-container">
+        <!-- ScenePack 1 -->
+        <a href="#" class="card">
+            <img src="" alt="Scene 1">
+            <div class="card-body">
+                <h5 class="card-title">SFX 1</h5>
+                <p class="card-text">Cinematic clips.</p>
+            </div>
+        </a>
+
+        <!-- ScenePack 2 -->
+        <a href="#" class="card">
+            <img src="" alt="Scene 2">
+            <div class="card-body">
+                <h5 class="card-title">SFX 2</h5>
+                <p class="card-text">Another collection.</p>
+            </div>
+        </a>
+
+        <!-- ScenePack 3 -->
+        <a href="#" class="card">
+            <img src="images/pack3.webp" alt="Scene 3">
+            <div class="card-body">
+                <h5 class="card-title">SFX 3</h5>
+                <p class="card-text">More cinematic beauty.</p>
+            </div>
+        </a>
+
+        <!-- ScenePack 4 -->
+        <a href="#" class="card">
+            <img src="images/pack4.webp" alt="Scene 4">
+            <div class="card-body">
+                <h5 class="card-title">SFX 4</h5>
+                <p class="card-text">More cinematic beauty.</p>
+            </div>
+        </a>
+
+        <!-- ScenePack 5 -->
+        <a href="#" class="card">
+            <img src="images/pack5.webp" alt="Scene 5">
+            <div class="card-body">
+                <h5 class="card-title">SFX 5</h5>
+                <p class="card-text">More cinematic beauty.</p>
+            </div>
+        </a>
+    </div>
+
+    <section class="scenepack-section">
+        <h2 class="section-title">Presets</h2>
+
+        <div class="card-container">
+    <!-- ScenePack 1 -->
+    <a href="#" class="card">
+        <img src="" alt="Scene 1">
+        <div class="card-body">
+            <h5 class="card-title">Presets 1</h5>
+            <p class="card-text">Cinematic clips.</p>
+        </div>
+    </a>
+
+    <!-- ScenePack 2 -->
+    <a href="#" class="card">
+        <img src="" alt="Scene 2">
+        <div class="card-body">
+            <h5 class="card-title">Presets 2</h5>
+            <p class="card-text">Another collection.</p>
+        </div>
+    </a>
+
+    <!-- ScenePack 3 -->
+    <a href="#" class="card">
+        <img src="images/pack3.webp" alt="Scene 3">
+        <div class="card-body">
+            <h5 class="card-title">Presets 3</h5>
+            <p class="card-text">More cinematic beauty.</p>
+        </div>
+    </a>
+
+    <!-- ScenePack 4 -->
+    <a href="#" class="card">
+        <img src="images/pack4.webp" alt="Scene 4">
+        <div class="card-body">
+            <h5 class="card-title">Presets 4</h5>
+            <p class="card-text">More cinematic beauty.</p>
+        </div>
+    </a>
+
+    <!-- ScenePack 5 -->
+    <a href="#" class="card">
+        <img src="images/pack5.webp" alt="Scene 5">
+        <div class="card-body">
+            <h5 class="card-title">Presets 5</h5>
+            <p class="card-text">More cinematic beauty.</p>
+        </div>
+    </a>
+</div>
+
+
+    <section class="scenepack-section">
+            <h2 class="section-title">Overlays</h2>
+
+            <div class="card-container">
+        <!-- ScenePack 1 -->
+        <a href="#" class="card">
+            <img src="" alt="Scene 1">
+            <div class="card-body">
+                <h5 class="card-title">Overlays 1</h5>
+                <p class="card-text">Cinematic clips.</p>
+            </div>
+        </a>
+
+        <!-- ScenePack 2 -->
+        <a href="#" class="card">
+            <img src="" alt="Scene 2">
+            <div class="card-body">
+                <h5 class="card-title">Overlays 2</h5>
+                <p class="card-text">Another collection.</p>
+            </div>
+        </a>
+
+        <!-- ScenePack 3 -->
+        <a href="#" class="card">
+            <img src="images/pack3.webp" alt="Scene 3">
+            <div class="card-body">
+                <h5 class="card-title">Overlays 3</h5>
+                <p class="card-text">More cinematic beauty.</p>
+            </div>
+        </a>
+
+        <!-- ScenePack 4 -->
+        <a href="#" class="card">
+            <img src="images/pack4.webp" alt="Scene 4">
+            <div class="card-body">
+                <h5 class="card-title">Overlays 4</h5>
+                <p class="card-text">More cinematic beauty.</p>
+            </div>
+        </a>
+
+        <!-- ScenePack 5 -->
+        <a href="#" class="card">
+            <img src="images/pack5.webp" alt="Scene 5">
+            <div class="card-body">
+                <h5 class="card-title">Overlays 5</h5>
+                <p class="card-text">More cinematic beauty.</p>
+            </div>
+        </a>
+    </div>
+
+    <section class="scenepack-section">
+        <h2 class="section-title">Audios</h2>
+
+        <div class="card-container">
+    <!-- ScenePack 1 -->
+    <a href="#" class="card">
+        <img src="" alt="Scene 1">
+        <div class="card-body">
+            <h5 class="card-title">Audios 1</h5>
+            <p class="card-text">Cinematic clips.</p>
+        </div>
+    </a>
+
+    <!-- ScenePack 2 -->
+    <a href="#" class="card">
+        <img src="" alt="Scene 2">
+        <div class="card-body">
+            <h5 class="card-title">Audios 2</h5>
+            <p class="card-text">Another collection.</p>
+        </div>
+    </a>
+
+    <!-- ScenePack 3 -->
+    <a href="#" class="card">
+        <img src="images/pack3.webp" alt="Scene 3">
+        <div class="card-body">
+            <h5 class="card-title">Audios 3</h5>
+            <p class="card-text">More cinematic beauty.</p>
+        </div>
+    </a>
+
+    <!-- ScenePack 4 -->
+    <a href="#" class="card">
+        <img src="images/pack4.webp" alt="Scene 4">
+        <div class="card-body">
+            <h5 class="card-title">Audios 4</h5>
+            <p class="card-text">More cinematic beauty.</p>
+        </div>
+    </a>
+
+    <!-- ScenePack 5 -->
+    <a href="#" class="card">
+        <img src="images/pack5.webp" alt="Scene 5">
+        <div class="card-body">
+            <h5 class="card-title">Audios 5</h5>
+            <p class="card-text">More cinematic beauty.</p>
+        </div>
+    </a>
+</div>
+
+<section class="scenepack-section">
+    <h2 class="section-title">Ae Prj</h2>
+
+    <div class="card-container">
+<!-- ScenePack 1 -->
+<a href="#" class="card">
+    <img src="" alt="Scene 1">
+    <div class="card-body">
+        <h5 class="card-title">Prj 1</h5>
+        <p class="card-text">Cinematic clips.</p>
+    </div>
+</a>
+
+<!-- ScenePack 2 -->
+<a href="#" class="card">
+    <img src="" alt="Scene 2">
+    <div class="card-body">
+        <h5 class="card-title">Prj 2</h5>
+        <p class="card-text">Another collection.</p>
+    </div>
+</a>
+
+<!-- ScenePack 3 -->
+<a href="#" class="card">
+    <img src="images/pack3.webp" alt="Scene 3">
+    <div class="card-body">
+        <h5 class="card-title">Prj 3</h5>
+        <p class="card-text">More cinematic beauty.</p>
+    </div>
+</a>
+
+<!-- ScenePack 4 -->
+<a href="#" class="card">
+    <img src="images/pack4.webp" alt="Scene 4">
+    <div class="card-body">
+        <h5 class="card-title">Prj 4</h5>
+        <p class="card-text">More cinematic beauty.</p>
+    </div>
+</a>
+
+<!-- ScenePack 5 -->
+<a href="#" class="card">
+    <img src="images/pack5.webp" alt="Scene 5">
+    <div class="card-body">
+        <h5 class="card-title">Prj 5</h5>
+        <p class="card-text">More cinematic beauty.</p>
+    </div>
+</a>
+</div>
 
             </section>                   
             <div class="social-links">

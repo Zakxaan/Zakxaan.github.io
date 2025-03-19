@@ -1,380 +1,734 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Flizzyr7Comps</title>
-
- <!-- Favicon -->
- <link rel="icon" href="images/favicon-16x16.png" type="image/x-icon">
- <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
- <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
- <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
-<!-- Open Graph meta tags -->
-<meta property="og:title" content="Flizzyr7Comps" />
-<meta property="og:description" content="4K Football Scene Packs, Comps, Feeds, My CC, Presets, SFX, Overlays & More!" />
-<meta property="og:image" content="https://flizzyr7.com/images/icon.png" />
-<meta property="og:url" content="https://flizzyr7.com" />
-<meta property="og:type" content="website" />
-
-<!-- Twitter Card meta tags -->
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Flizzyr7Comps" />
-<meta name="twitter:description" content="4K Football Scene Packs, Comps, Feeds, My CC, Presets, SFX, Overlays & More!" />
-<meta name="twitter:image" content="https://flizzyr7.com/images/icon.png" />
-<meta name="twitter:url" content="https://flizzyr7.com" />
-
- <!-- Structured Data -->
- <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Flizzyr7Comps",
-    "url": "https://flizzyr7.com",
-    "logo": "https://flizzyr7.com/images/icon.png"
-  }
- </script>
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Font Awesome for Social Icons -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
-  <!-- Custom CSS -->
-  <style>
-    body {
-      background-color: #f8f9fa;
-    }
-    .navbar {
-      background-color: #343a40;
-    }
-    .navbar a {
-      color: #fff;
-    }
-    .navbar-brand {
-      margin-right: auto;
-      display: flex;
-      align-items: center;
-      font-family: 'Poppins', sans-serif;
-      font-weight: bold;
-    }
-    .navbar-brand img {
-      width: 40px;
-      height: 40px;
-      margin-right: 10px;
-      border-radius: 50%;
-    }
-    .hero-section {
-      background: url('your-image.jpg') center/cover no-repeat;
-      height: 100vh;
-      color: black;
-      text-align: center;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    .hero-text h1 {
-      font-size: 35px;
-      font-weight: bold;
-      color: black;
-    }
-    .hero-text p {
-      font-size: 20px;
-      color: #6c757d;
-    }
-    .social-icons i {
-      font-size: 20px;
-      margin-left: 15px;
-      color: #fff;
-      transition: color 0.3s ease;
-    }
-    .social-icons i:hover {
-      color: #ff5c8d;
-    }
-
-    /* Style for the suggestion box */
-    .suggestions {
-      position: absolute;
-      top: 100%; /* Places the box directly below the search bar */
-      right: 250px; /* Aligns the box with the right edge of the search bar */
-      width: 200px; /* Same width as the search input */
-      background-color: #fff;
-      border: 1px solid #ddd;
-      border-radius: 5px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      max-height: 120px;
-      overflow-y: auto;
-      display: none;
-      z-index: 1000;
-    }
-    .suggestions a {
-      display: block;
-      padding: 6px 10px;
-      color: #333;
-      text-decoration: none;
-      font-size: 14px;
-    }
-    .suggestions a:hover {
-      background-color: #f0f0f0;
-    }
-    .form-control {
-      width: 200px; /* Small width for the search bar */
-    }
-    
-     .dropdown-menu {
-    background-color: #fff; /* White background */
-  }
-
-  .dropdown-menu .dropdown-item {
-    color: black; /* Black text color for items */
-  }
-
-  .dropdown-menu .dropdown-item:hover {
-    background-color: #f0f0f0; /* Light gray hover effect */
-    color: black; /* Ensure text remains black on hover */
-  }
-  
-  #feed h1 {
-  font-size: 16px; /* Adjust the size if needed */
-  font-weight: normal; /* Optional: Adjust the weight */
-  color: black; /* Optional: Adjust color */
-  text-align: center; /* Center align the text */
-  margin-top: 20px; /* Adds space above the text */
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Flizzyr7Comps" />
+    <meta property="og:description" content="4K Football Scene Packs, Comps, Feeds, My CC, Presets, SFX, Overlays & More!" />
+    <meta property="og:image" content="https://flizzyr7.com/images/icon.png" />
+    <meta property="og:url" content="https://flizzyr7.com" />
+    <meta property="og:type" content="website" />
+    <title>Flizzyr-7-Comps</title>
+    <link rel="icon" type="image/png" href="https://flizzyr7.com/images/icon.webp">
+    <style>
+        :root {
+            --bg-light: #ffffff;
+            --bg-dark: #121212;
+            --text-light: #121212;
+            --text-dark: #f5f5f5;
+            --accent: #9d14b3;
+            --accent-hover: #000000;
+            --border-light: #e0e0e0;
+            --border-dark: #333333;
+            --card-light: #f5f5f5;
+            --card-dark: #1e1e1e;
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+        
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-light);
+            transition: var(--transition);
+            overflow-x: hidden;
+        }
+        
+        body.dark-mode {
+            background-color: var(--bg-dark);
+            color: var(--text-dark);
+        }
+        
+        .container {
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        header {
+            padding: 1.5rem 0;
+            width: 100%;
+            background-color: var(--bg-light);
+            border-bottom: 1px solid var(--border-light);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            transition: var(--transition);
+        }
+        
+        body.dark-mode header {
+            background-color: var(--bg-dark);
+            border-bottom: 1px solid var(--border-dark);
+        }
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-decoration: none;
+            color: var(--text-light);
+            transition: var(--transition);
+        }
+        
+        body.dark-mode .logo {
+            color: var(--text-dark);
+        }
+        
+        .logo span {
+            color: var(--accent);
+        }
+        
+        nav {
+            display: flex;
+            gap: 1.5rem;
+        }
+        
+        nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            transition: var(--transition);
+        }
+        
+        body.dark-mode nav a {
+            color: var(--text-dark);
+        }
+        
+        nav a:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent);
+            transition: var(--transition);
+        }
+        
+        nav a:hover:after {
+            width: 100%;
+        }
+        
+        nav a.active {
+            color: var(--accent);
+        }
+        
+        nav a.active:after {
+            width: 100%;
+        }
+        
+        main {
+            flex: 1;
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
+        
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+            margin-bottom: 4rem;
+            min-height: 70vh;
+        }
+        
+        .hero-content {
+            flex: 1;
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+        
+        .hero-description {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            color: #666;
+            transition: var(--transition);
+        }
+        
+        body.dark-mode .hero-description {
+            color: #aaa;
+        }
+        
+        .hero-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    opacity: 0;
+    transform: translateX(50px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
+/* Make the Image Circular */
+.hero-image img {
+    width: 400px;  /* Adjust size as needed */
+    height: 400px; /* Keep it square for a perfect circle */
+    object-fit: cover; /* Prevents stretching */
+    border-radius: 50%; /* Makes it a perfect circle */
+    border: 3px solid var(--accent); /* Optional: Adds a border */
+}
 
-  </style>
+        
+        .profile-image {
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--accent);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+        }
+        
+        body.dark-mode .profile-image {
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+        }
+        
+        .cta-button {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background-color: var(--accent);
+            color: white;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+        }
+        
+        .cta-button:hover {
+            background-color: var(--accent-hover);
+            transform: translateY(-2px);
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 3rem;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background-color: var(--accent);
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 4rem 0;
+        }
+        
+        .feature-card {
+            background-color: var(--card-light);
+            border-radius: 8px;
+            padding: 2rem;
+            transition: var(--transition);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.6s ease, transform 0.6s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        body.dark-mode .feature-card {
+            background-color: var(--card-dark);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+        }
+        
+        .feature-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .feature-description {
+            color: #666;
+            line-height: 1.5;
+            transition: var(--transition);
+        }
+        
+        body.dark-mode .feature-description {
+            color: #aaa;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 4rem 0 2rem;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        .social-link {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background-color: var(--card-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: var(--transition);
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        body.dark-mode .social-link {
+            background-color: var(--card-dark);
+            color: var(--text-dark);
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+        }
+        
+        .social-link:hover {
+            background-color: var(--accent);
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 3rem 0;
+        }
+        
+        .gallery-item {
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+            height: 200px;
+            opacity: 0;
+            transform: scale(0.9);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-item::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 60%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .gallery-item:hover::after {
+            opacity: 1;
+        }
+        
+        footer {
+            padding: 2rem;
+            background-color: var(--card-light);
+            text-align: center;
+            transition: var(--transition);
+            border-top: 1px solid var(--border-light);
+        }
+        
+        body.dark-mode footer {
+            background-color: var(--card-dark);
+            border-top: 1px solid var(--border-dark);
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .copyright {
+            color: #666;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+            transition: var(--transition);
+        }
+        
+        body.dark-mode .copyright {
+            color: #aaa;
+        }
+        
+        .theme-toggle {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background-color: var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            color: white;
+            z-index: 100;
+            transition: var(--transition);
+        }
+        
+        .theme-toggle:hover {
+            transform: scale(1.1);
+        }
+        
+        .scroll-to-top {
+            position: fixed;
+            bottom: 25px;
+            left: 25px;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background-color: var(--card-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            color: var(--text-light);
+            z-index: 100;
+            transition: var(--transition);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+        }
+        
+        body.dark-mode .scroll-to-top {
+            background-color: var(--card-dark);
+            color: var(--text-dark);
+        }
+        
+        .scroll-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .scroll-to-top:hover {
+            background-color: var(--accent);
+            color: white;
+        }
+        
+        .show {
+            opacity: 1 !important;
+            transform: translate(0) scale(1) !important;
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            nav {
+                margin-top: 1rem;
+            }
+            
+            .hero {
+                flex-direction: column-reverse;
+                text-align: center;
+                min-height: auto;
+            }
+            
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .profile-image {
+                width: 220px;
+                height: 220px;
+                margin-bottom: 2rem;
+            }
+            
+            .gallery {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+        }
+        
+        @media (max-width: 480px) {
+            main {
+                padding: 2rem 1rem;
+            }
+            
+            nav {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1rem;
+            }
+            
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .feature-card {
+                padding: 1.5rem;
+            }
+            
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+        }
+        ::-webkit-scrollbar {
+                display: none;
+        }
+    </style>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-
-  <!-- Navigation Bar -->
-<nav class="navbar navbar-expand-lg navbar-dark">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="https://www.youtube.com/@Flizzyr7Comps">
-      <img src="images/icon.webp" alt="Logo"> Flizzyr7Comps
-    </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="#home">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#scene-packs">Scene Packs</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#comp">Comp</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#feed">Feed</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="assetsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Assets
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="assetsDropdown">
-            <li><a class="dropdown-item" href="#audio">Audio</a></li>
-            <li><a class="dropdown-item" href="#presets">Presets</a></li>
-            <li><a class="dropdown-item" href="#overlays">Overlays</a></li>
-            <li><a class="dropdown-item" href="#sfx">SFX</a></li>
-            <li><a class="dropdown-item" href="#pjf">AE PJF</a></li>
-          </ul>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#contact">Contact</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="donate.html">Donate</a>
-        </li>
-      </ul>
-
-      <!-- Search Bar -->
-      <form class="d-flex ms-3" role="search" id="searchForm">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="searchInput">
-        <button class="btn btn-outline-light" type="submit">Search</button>
-      </form>
-
-      <!-- Suggestions Box -->
-      <div id="suggestionsBox" class="suggestions"></div>
-
-      <div class="social-icons d-flex align-items-center ms-3">
-        <a href="https://www.youtube.com/@Flizzyr7Comps" target="_blank">
-          <i class="fab fa-youtube"></i>
-        </a>
-        <a href="https://www.instagram.com/flizzyr7/" target="_blank">
-          <i class="fab fa-instagram"></i>
-        </a>
-        <a href="https://www.tiktok.com/@flizzyr7" target="_blank">
-          <i class="fab fa-tiktok"></i>
-        </a>
-        <a href="https://discord.com/invite/djMrzXTD" target="_blank">
-          <i class="fab fa-discord"></i>
-        </a>
-      </div>
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <a href="base.html" class="logo">Flizzyr<span>-7</span></a>
+                <nav>
+                    <a href="index.html" class="active">Home</a>
+                    <a href="scenepack.html">Scenepacks</a>
+                    <a href="comp.html">Comps</a>
+                    <a href="Feed.html">Feed</a>
+                    <a href="assets.html">Assets</a>
+                    <a href="contact.html">Contact Me</a>
+                    <a href="donate.html">Donate Me</a>
+                </nav>
+            </div>
+        </header>
+        
+        <main>
+            <section class="hero">
+                <div class="hero-content">
+                    <h1 class="hero-title">Premium Football Content <span style="color: var(--accent);">Made Simple</span></h1>
+                    <p class="hero-description">Access high-quality 4K football scene packs, compositions, color corrections, presets, SFX, overlays and more — all completely free.</p>
+                    <a href="#gallery" class="cta-button">Explore Content</a>
+                </div>
+                <div class="hero-image">
+                    <img src="https://flizzyr7.com/images/icon.webp" alt="Flizzyr Logo" class="profile-image">
+                </div>
+            </section>
+            
+            <h2 class="section-title">What We Offer</h2>
+            
+            <section class="features">
+                <div class="feature-card">
+                    <i class="fas fa-film feature-icon"></i>
+                    <h3 class="feature-title">4K Scene Packs</h3>
+                    <p class="feature-description">High-quality football footage ready to use in your content. Perfect for YouTube creators and editors.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-palette feature-icon"></i>
+                    <h3 class="feature-title">Color Correction</h3>
+                    <p class="feature-description">Professionally crafted color presets to give your football footage that cinematic look.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-layer-group feature-icon"></i>
+                    <h3 class="feature-title">Overlays & Effects</h3>
+                    <p class="feature-description">Dynamic overlays and effects to enhance your videos and make them stand out.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-volume-up feature-icon"></i>
+                    <h3 class="feature-title">Sound FX</h3>
+                    <p class="feature-description">Immersive sound effects specially designed for football content creators.</p>
+                </div>
+            </section>
+            
+            <h2 class="section-title">Featured Content</h2>
+            
+            <div class="gallery" id="gallery">
+                <div class="gallery-item">
+                    <img src="https://imgs.search.brave.com/zw1dNa2ulbjPr3g23TX-1Rj3aViUWRAU0pIBSVfGXho/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9lbGVt/ZW50cy1yZXNpemVk/LmVudmF0b3VzZXJj/b250ZW50LmNvbS9l/bGVtZW50cy12aWRl/by1jb3Zlci1pbWFn/ZXMvZmlsZXMvNTE3/NzYxODUzL1ByZXZp/ZXcuanBnP3c9NTAw/JmNmX2ZpdD1jb3Zl/ciZxPTg1JmZvcm1h/dD1hdXRvJnM9YTcx/Mjg0NDMyZjJjNzk5/MWVjMDgyODJjOWZi/NjU3NDI4Mzc4NzZl/NmM3N2JmODhjMTMx/Njk3ZTgyOWMyNDJl/ZA" alt="Football scene pack preview">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://imgs.search.brave.com/Z6XcXNHc6EW39zbsqyIUDgqSRgc65NiGa8ze_YrkeFg/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9lbGVt/ZW50cy1yZXNpemVk/LmVudmF0b3VzZXJj/b250ZW50LmNvbS9l/bGVtZW50cy12aWRl/by1jb3Zlci1pbWFn/ZXMvZmlsZXMvMzk0/ODI5MjE0L1ByZXZp/ZXcuanBnP3c9NTAw/JmNmX2ZpdD1jb3Zl/ciZxPTg1JmZvcm1h/dD1hdXRvJnM9OTdi/ZDY0MWNjMmE1OGE2/NDM0YzA1YThmMDk4/ZDNlYmViZDYwNmNi/MGY1NzhmOTU0NjBm/OWM4ODYwZTRlMjQz/YQ" alt="Color correction preset">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://imgs.search.brave.com/i2SxDSlTbCZu7mq1AHjl3e0lXXi15KMUBdigcVneXcE/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9lbGVt/ZW50cy1yZXNpemVk/LmVudmF0b3VzZXJj/b250ZW50LmNvbS9l/bGVtZW50cy12aWRl/by1jb3Zlci1pbWFn/ZXMvZmlsZXMvMjc1/NjgyNzQ0L3ByZXZp/ZXcuanBnP3c9NTAw/JmNmX2ZpdD1jb3Zl/ciZxPTg1JmZvcm1h/dD1hdXRvJnM9ZDEy/NjAyM2U5NDkzZmMy/MTkxZjAxODczOGFl/MzAwZTZjNTBkOWM5/NzI1MTViZjVkYmRk/MzNlNTYyZmI1NWEz/ZA" alt="Overlay effect">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://imgs.search.brave.com/UcKZLmpA1mR6gp1uDTZTzi55YD1KgO7jyGYRcCyJg5g/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9lbGVt/ZW50cy1yZXNpemVk/LmVudmF0b3VzZXJj/b250ZW50LmNvbS9l/bGVtZW50cy12aWRl/by1jb3Zlci1pbWFn/ZXMvZmlsZXMvMjA0/NDEzNTI0L1ByZXZp/ZXclMjBJbWFnZS5q/cGc_dz01MDAmY2Zf/Zml0PWNvdmVyJnE9/ODUmZm9ybWF0PWF1/dG8mcz1kNDRlYzUy/MjJlOWU5NzJhZmE0/NjIxZmRmZTMyZGU4/MjE2ZDQzZDM1MmVm/ZTcxNzI3ZGY3YzM0/ZDVmNjAwZWUy" alt="Football footage">
+                </div>
+            </div>
+            
+            <div class="social-links">
+                <a href="https://www.youtube.com/@Flizzyr7Comps" class="social-link" target="_blank">
+                    <i class="fab fa-youtube"></i>
+                </a>
+                <a href="https://www.tiktok.com/@flizzyr7" class="social-link" target="_blank">
+                    <i class="fab fa-tiktok"></i>
+                </a>
+                <a href="https://www.tiktok.com/@flizzyr7" class="social-link" target="_blank">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://discord.com" class="social-link" target="_blank">
+                    <i class="fab fa-discord"></i>
+                </a>
+            </div>
+        </main>
+        
+        <footer>
+            <div class="footer-content">
+                <p class="copyright">&copy; 2025 Flizzyr-7-Comps. All rights reserved.</p>
+            </div>
+        </footer>
+        
+        <div class="theme-toggle">
+            <i class="fas fa-moon"></i>
+        </div>
+        
+        <div class="scroll-to-top">
+            <i class="fas fa-arrow-up"></i>
+        </div>
     </div>
-  </div>
-</nav>
 
-
-  <!-- Hero Section -->
-  <section class="hero-section" id="home">
-    <div class="hero-text">
-      <h1>4K Football Scene Packs, Comps, Feeds, My CC, Presets, SFX, Overlays & More!</h1>
-      <p>Elevate your YouTube and football content with high-quality videos, my CC, presets, SFX, overlays, and more—all for free!</p>
-    </div>
-  </section>
-
-  <!-- Scene Packs Section -->
-  <section id="scene-packs" class="container py-5">
-    <h2 class="text-center mb-4">Featured High Quality Scene Packs</h2>
-    <div class="row">
-      <!-- Scene Pack 1 -->
-      <div class="col-md-4">
-        <div class="card">
-          <a href="timer4.html">
-            <img src="images/vini.webp" class="card-img-top" alt="Scene Pack 1">
-          </a>
-          <div class="card-body">
-            <h5 class="card-title">Vini Jr scene-pack in 4K</h5>
-          </div>
-        </div>
-      </div>
-      <!-- Scene Pack 2 -->
-      <div class="col-md-4">
-        <div class="card">
-          <a href="timer1.html">
-            <img src="pack2.jpg" class="card-img-top" alt="Scene Pack 2">
-          </a>
-          <div class="card-body">
-            <h5 class="card-title">Football Scene Pack 2</h5>
-            <p class="card-text">Custom football effects for adding flair to your match highlights and reviews.</p>
-          </div>
-        </div>
-      </div>
-      <!-- Scene Pack 3 -->
-      <div class="col-md-4">
-        <div class="card">
-          <a href="timer1.html">
-            <img src="pack3.jpg" class="card-img-top" alt="Scene Pack 3">
-          </a>
-          <div class="card-body">
-            <h5 class="card-title">Flizzyr7 CC</h5>
-            <p class="card-text">Exclusive Flizzyr7 CC and packs for enhancing your football content with professional touches.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Feed Section -->
-  <section id="feed" class="container py-5">
-    <h2 class="text-center mb-4">Feeds</h2>
-    <div class="row">
-      <!-- Feed Card 1 -->
-      <div class="col-md-4">
-        <div class="card">
-          <a href="choice.html">
-            <img src="images/" class="card-img-top" alt="Feed 1">
-          </a>
-          <div class="card-body">
-            <h5 class="card-title">Ronaldo vs Chelsea 2008 UCL Final</h5>
-            <p class="card-text">Exclusive football content ready for your next project!</p>
-          </div>
-        </div>
-      </div>
-      <!-- Feed Card 2 -->
-      <div class="col-md-4">
-        <div class="card">
-          <a href="https://www.youtube.com/@Flizzyr7Comps">
-            <img src="pack2.jpg" class="card-img-top" alt="Feed 2">
-          </a>
-          <div class="card-body">
-            <h5 class="card-title">My Next Scene Pack</h5>
-            <p class="card-text">The drama with a thrilling match between Ronaldo's Manchester United and Chelsea.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="feed" class="container py-5">
-    <h2 class="text-center mb-4">Comp</h2>
-    <div class="row">
-      <!-- Feed Card 1 -->
-      <div class="col-md-4">
-        <div class="card">
-          <a href="choice.html">
-            <img src="images/cr7.webp" class="card-img-top" alt="Feed 1">
-          </a>
-          <div class="card-body">
-            <h5 class="card-title">Ronaldo vs Chelsea 2008 UCL Final</h5>
-            <p class="card-text">Exclusive football content ready for your next project!</p>
-          </div>
-        </div>
-      </div>
-
-      <h1>All content provided here is for educational or editing purposes. No copyright infringement is intended.</h1>
-    </section>
-  <!-- Footer Section -->
-  <footer class="py-4 bg-dark text-white text-center" id="contact">
-    <p>Contact Us: <a href="mailto:elinojolen@gmail.com" class="text-white">elinojolen@gmail.com</a></p>
-    <p>&copy; 2024 Flizzyr7 | Disclaimer: I do not claim ownership of copyrighted content, graphics, or brands displayed. All materials have been altered or repurposed to create original content that I own.</p>
-  </footer>
-
-  <!-- Bootstrap JS and JS Bundle -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-
-  <script>
-    const suggestions = [
-      { name: 'Home', link: '#home' },
-      { name: 'Scene Packs', link: '#scene-packs' },
-      { name: 'Comp', link: '#comp' },
-      { name: 'Feed', link: '#feed' },
-      { name: 'CC', link: '#cc' },
-      { name: 'Contact', link: '#contact' },
-      { name: 'Ronaldo vs Chelsea 2008 UCL Final', link: '#feed' }
-    ];
-
-    const searchInput = document.getElementById('searchInput');
-    const suggestionsBox = document.getElementById('suggestionsBox');
-
-    searchInput.addEventListener('input', function() {
-      const query = searchInput.value.toLowerCase();
-      if (query) {
-        const filteredSuggestions = suggestions.filter(suggestion =>
-          suggestion.name.toLowerCase().includes(query)
-        );
-
-        // Clear existing suggestions
-        suggestionsBox.innerHTML = '';
-
-        // Show filtered suggestions
-        filteredSuggestions.forEach(suggestion => {
-          const suggestionElement = document.createElement('a');
-          suggestionElement.href = suggestion.link;
-          suggestionElement.textContent = suggestion.name;
-          suggestionsBox.appendChild(suggestionElement);
+    <script>
+        // Theme toggle functionality
+        const themeToggle = document.querySelector('.theme-toggle');
+        const themeIcon = document.querySelector('.theme-toggle i');
+        
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            
+            if (document.body.classList.contains('dark-mode')) {
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
+                localStorage.setItem('theme', 'light');
+            }
         });
-
-        suggestionsBox.style.display = 'block';
-      } else {
-        suggestionsBox.style.display = 'none';
-      }
-    });
-
-    // Hide suggestions when clicking outside
-    document.addEventListener('click', function(event) {
-      if (!searchInput.contains(event.target) && !suggestionsBox.contains(event.target)) {
-        suggestionsBox.style.display = 'none';
-      }
-    });
-
-    // Prevent form submission
-    document.getElementById('searchForm').addEventListener('submit', function(event) {
-      event.preventDefault();
-    });
-  </script>
+        
+        // Check for saved theme preference
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            document.body.classList.add('dark-mode');
+            themeIcon.classList.remove('fa-moon');
+            themeIcon.classList.add('fa-sun');
+        }
+        
+        // Scroll to top functionality
+        const scrollToTopButton = document.querySelector('.scroll-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 200) {
+                scrollToTopButton.classList.add('visible');
+            } else {
+                scrollToTopButton.classList.remove('visible');
+            }
+        });
+        
+        scrollToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Smooth scrolling for in-page links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Scroll animations
+        function checkScroll() {
+            const elements = document.querySelectorAll('.hero-content, .hero-image, .section-title, .feature-card, .gallery-item, .social-links');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.2;
+                
+                if (elementPosition < screenPosition) {
+                    element.classList.add('show');
+                    
+                    // Add stagger effect to feature cards
+                    if (element.classList.contains('feature-card')) {
+                        const index = Array.from(element.parentNode.children).indexOf(element);
+                        element.style.transitionDelay = `${index * 0.1}s`;
+                    }
+                    
+                    // Add stagger effect to gallery items
+                    if (element.classList.contains('gallery-item')) {
+                        const index = Array.from(element.parentNode.children).indexOf(element);
+                        element.style.transitionDelay = `${index * 0.1}s`;
+                    }
+                }
+            });
+        }
+        
+        // Run on load
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.querySelector('.hero-content').classList.add('show');
+                document.querySelector('.hero-image').classList.add('show');
+            }, 300);
+            
+            checkScroll();
+        });
+        
+        // Run on scroll
+        window.addEventListener('scroll', checkScroll);
+    </script>
 </body>
 </html>
