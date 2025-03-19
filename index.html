@@ -730,9 +730,11 @@
         // Run on scroll
         window.addEventListener('scroll', checkScroll);
 
-        if (window.location.pathname.endsWith(".html")) {
-        window.history.replaceState({}, document.title, window.location.pathname.replace(".html", "Home"));
-        }
+        if (window.location.pathname.endsWith("index.html")) {
+        window.history.replaceState({}, document.title, "/");
+    } else if (window.location.pathname.endsWith(".html")) {
+        window.history.replaceState({}, document.title, window.location.pathname.replace(".html", ""));
+    }
         
     </script>
 </body>
