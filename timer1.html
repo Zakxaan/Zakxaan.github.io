@@ -30,12 +30,8 @@
     }
 
     @keyframes spin {
-      from {
-        transform: rotate(0deg);
-      }
-      to {
-        transform: rotate(360deg);
-      }
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
     }
 
     .instructions {
@@ -60,35 +56,41 @@
   </style>
   <script>
     let countdown = 15;
+
     function startTimer() {
       const timer = document.getElementById("timer");
       const button = document.getElementById("download-button");
       const animation = document.querySelector(".loading-animation");
 
+      // Get the SCP link from URL parameters
+      const urlParams = new URLSearchParams(window.location.search);
+      const scpLink = urlParams.get("scp_link");
+
       const interval = setInterval(() => {
         timer.textContent = `Step (1/2): Please wait ${countdown} seconds...`;
         countdown--;
+
         if (countdown < 0) {
           clearInterval(interval);
           timer.style.display = "none";
           animation.style.display = "none";
           button.style.display = "inline-block";
+          
+          // Redirect to timer2 with scp_link
+          button.href = `timer2.html?scp_link=${encodeURIComponent(scpLink)}`;
         }
       }, 1000);
     }
-    if (window.location.pathname.endsWith("index.html")) {
-        window.history.replaceState({}, document.title, "/");
-    } else if (window.location.pathname.endsWith(".html")) {
-        window.history.replaceState({}, document.title, window.location.pathname.replace(".html", ""));
-    }
+
+    window.onload = startTimer;
   </script>
 </head>
-<body onload="startTimer()">
+<body>
   <div class="timer-container">
     <p class="instructions">Go through these two steps to unlock the link</p>
     <div class="loading-animation"></div>
     <p id="timer">Please wait 15 seconds...</p>
-    <a href="timer2.html" id="download-button">Step 2</a>
+    <a href="#" id="download-button">Step 2</a>
   </div>
 </body>
 </html>
