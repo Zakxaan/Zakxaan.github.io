@@ -742,5 +742,31 @@
     }
         
     </script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    // Create a bait element that ad blockers usually hide
+    let bait = document.createElement("div");
+    bait.className = "adsbox"; 
+    bait.style.height = "1px";
+    bait.style.position = "absolute";
+    bait.style.left = "-9999px"; 
+    document.body.appendChild(bait);
+
+    // Check after a short delay
+    setTimeout(function () {
+        if (!bait || bait.offsetParent === null || bait.offsetHeight === 0) {
+            // AdBlock detected -> redirect or block page
+            document.body.innerHTML = `
+                <div style="text-align:center; padding:50px; font-family:sans-serif;">
+                    <h2>Ad Blocker Detected 🚫</h2>
+                    <p>This website requires ads to function. Please disable your ad blocker and reload.</p>
+                </div>
+            `;
+        }
+        bait.remove();
+    }, 200);
+});
+</script>
+
 </body>
 </html>
