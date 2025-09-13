@@ -764,35 +764,24 @@
     <p><em>The page will reload automatically once it’s disabled.</em></p>
 </div>
 
-<!-- bait element (ad blockers usually hide this) -->
-<div id="ad-bait" class="ads ad-banner sponsor" style="height:1px; width:1px; position:absolute; left:-9999px;"></div>
-
 <script>
 document.addEventListener("DOMContentLoaded", function () {
     function detectAdBlock(callback) {
-        let bait = document.getElementById("ad-bait");
-        let blocked = false;
+        let test = document.createElement("script");
+        // this URL is almost always blocked by adblockers
+        test.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js";
+        test.type = "text/javascript";
+        test.async = true;
 
-        // check if bait is hidden
-        if (!bait || bait.offsetParent === null || bait.offsetHeight === 0 || bait.offsetWidth === 0) {
-            blocked = true;
-        }
-
-        // also test loading ads.js (cache-busted)
-        let testScript = document.createElement("script");
-        testScript.src = "/ads.js?v=" + Date.now();
-        testScript.type = "text/javascript";
-        testScript.async = true;
-
-        testScript.onload = function () {
-            callback(blocked); // rely on element check too
+        test.onload = function () {
+            callback(false); // loaded → no adblock
         };
 
-        testScript.onerror = function () {
-            callback(true); // definitely blocked
+        test.onerror = function () {
+            callback(true); // blocked → adblock
         };
 
-        document.body.appendChild(testScript);
+        document.body.appendChild(test);
     }
 
     function checkAdBlock() {
@@ -801,7 +790,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             if (isBlocked) {
                 overlay.style.display = "block";
-                setTimeout(checkAdBlock, 3000); // re-check
+                setTimeout(checkAdBlock, 3000); // keep checking
             } else {
                 if (overlay.style.display === "block") {
                     location.reload();
