@@ -754,31 +754,76 @@
     padding-top: 100px;
     font-family: sans-serif;
     z-index: 999999;
+    overflow-y: auto;
 }
 </style>
 
 <div id="adblock-overlay">
     <h2>🚫 Ad Blocker Detected</h2>
-    <p>This website requires ads to function.</p>
-    <p>Please disable your ad blocker to continue.</p>
+    <p>This website requires ads to function. Please disable your ad blocker to continue.</p>
     <p><em>The page will reload automatically once it’s disabled.</em></p>
+    <div id="adblock-instructions"></div>
 </div>
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
+    // Detect OS for custom instructions
+    function getMobileOS() {
+        let userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+        if (/android/i.test(userAgent)) {
+            return "Android";
+        }
+        if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+            return "iOS";
+        }
+        return "Other";
+    }
+
+    // Insert instructions based on OS
+    function showInstructions() {
+        let os = getMobileOS();
+        let instructions = document.getElementById("adblock-instructions");
+
+        if (os === "iOS") {
+            instructions.innerHTML = `
+                <hr>
+                <p><b>On iPhone:</b><br>
+                1. Open <b>Settings</b><br>
+                2. Go to <b>Safari → Extensions</b><br>
+                3. Toggle off your Ad Blocker<br>
+                4. Reload this page</p>
+            `;
+        } else if (os === "Android") {
+            instructions.innerHTML = `
+                <hr>
+                <p><b>On Android:</b><br>
+                • If using <b>Brave</b>: Disable "Shields" for this site<br>
+                • If using <b>AdGuard / Blokada</b>: Pause protection or whitelist this site<br>
+                • If using another browser: Check ad-block settings in the app</p>
+            `;
+        } else {
+            instructions.innerHTML = `
+                <hr>
+                <p><b>On Desktop:</b><br>
+                Disable your ad blocker extension (AdBlock, uBlock, etc.) from the browser toolbar.</p>
+            `;
+        }
+    }
+
+    // Detect adblocker by checking Google Ads script
     function detectAdBlock(callback) {
         let test = document.createElement("script");
-        // this URL is almost always blocked by adblockers
         test.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js";
         test.type = "text/javascript";
         test.async = true;
 
         test.onload = function () {
-            callback(false); // loaded → no adblock
+            callback(false); // Not blocked
         };
 
         test.onerror = function () {
-            callback(true); // blocked → adblock
+            callback(true); // Blocked
         };
 
         document.body.appendChild(test);
@@ -790,6 +835,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             if (isBlocked) {
                 overlay.style.display = "block";
+                showInstructions();
                 setTimeout(checkAdBlock, 3000); // keep checking
             } else {
                 if (overlay.style.display === "block") {
