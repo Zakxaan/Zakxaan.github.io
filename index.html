@@ -751,10 +751,18 @@
     background: white;
     color: black;
     text-align: center;
-    padding-top: 100px;
+    padding: 40px 20px;
     font-family: sans-serif;
     z-index: 999999;
     overflow-y: auto;
+}
+#adblock-overlay h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+#adblock-overlay p {
+    font-size: 16px;
+    margin: 8px 0;
 }
 </style>
 
@@ -767,20 +775,14 @@
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
-    // Detect OS for custom instructions
+    // OS detection for custom instructions
     function getMobileOS() {
         let userAgent = navigator.userAgent || navigator.vendor || window.opera;
-
-        if (/android/i.test(userAgent)) {
-            return "Android";
-        }
-        if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-            return "iOS";
-        }
+        if (/android/i.test(userAgent)) return "Android";
+        if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) return "iOS";
         return "Other";
     }
 
-    // Insert instructions based on OS
     function showInstructions() {
         let os = getMobileOS();
         let instructions = document.getElementById("adblock-instructions");
@@ -811,22 +813,30 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    // Detect adblocker by checking Google Ads script
+    // AdBlock detection with both bait file and Google Ads
     function detectAdBlock(callback) {
-        let test = document.createElement("script");
-        test.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js";
-        test.type = "text/javascript";
-        test.async = true;
+        let checks = 0, blocked = 0;
 
-        test.onload = function () {
-            callback(false); // Not blocked
-        };
+        function checkScript(src, done) {
+            let test = document.createElement("script");
+            test.src = src + "?v=" + Date.now();
+            test.async = true;
+            test.onload = () => { done(false); };
+            test.onerror = () => { done(true); };
+            document.body.appendChild(test);
+        }
 
-        test.onerror = function () {
-            callback(true); // Blocked
-        };
+        function done(isBlocked) {
+            checks++;
+            if (isBlocked) blocked++;
+            if (checks === 2) {
+                // only call blocked if BOTH failed
+                callback(blocked === 2);
+            }
+        }
 
-        document.body.appendChild(test);
+        checkScript("/ads.js", done); // local bait script (make sure this file exists!)
+        checkScript("https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js", done);
     }
 
     function checkAdBlock() {
@@ -836,7 +846,7 @@ document.addEventListener("DOMContentLoaded", function () {
             if (isBlocked) {
                 overlay.style.display = "block";
                 showInstructions();
-                setTimeout(checkAdBlock, 3000); // keep checking
+                setTimeout(checkAdBlock, 3000);
             } else {
                 if (overlay.style.display === "block") {
                     location.reload();
