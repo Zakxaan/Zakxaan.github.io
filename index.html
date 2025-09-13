@@ -742,34 +742,59 @@
     }
         
     </script>
+<style>
+#adblock-overlay {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: white;
+    color: black;
+    text-align: center;
+    padding-top: 100px;
+    font-family: sans-serif;
+    z-index: 999999;
+}
+</style>
+
+<div id="adblock-overlay">
+    <h2>🚫 Ad Blocker Detected</h2>
+    <p>This website requires ads to function.</p>
+    <p>Please disable your ad blocker to continue.</p>
+    <p><em>The page will reload automatically once it’s disabled.</em></p>
+</div>
+
 <script>
 document.addEventListener("DOMContentLoaded", function () {
     function detectAdBlock(callback) {
         let testScript = document.createElement("script");
-        testScript.src = "/ads.js"; // fake ad script (doesn't need to exist)
-        testScript.onerror = function () {
-            callback(true); // blocked
-        };
+        testScript.src = "/ads.js"; // fake ad script
+        testScript.type = "text/javascript";
+        testScript.async = true;
+
         testScript.onload = function () {
-            callback(false); // not blocked
+            callback(false); // Not blocked
         };
+
+        testScript.onerror = function () {
+            callback(true); // Blocked
+        };
+
         document.body.appendChild(testScript);
     }
 
     function checkAdBlock() {
         detectAdBlock(function (isBlocked) {
+            let overlay = document.getElementById("adblock-overlay");
+
             if (isBlocked) {
-                document.body.innerHTML = `
-                    <div style="text-align:center; padding:50px; font-family:sans-serif;">
-                        <h2>🚫 Ad Blocker Detected</h2>
-                        <p>This website requires ads to function. Please disable your ad blocker.</p>
-                        <p><em>We’ll reload the page automatically once it’s disabled.</em></p>
-                    </div>
-                `;
-                setTimeout(checkAdBlock, 3000); // re-check every 3 seconds
+                overlay.style.display = "block";  // Show restriction overlay
+                setTimeout(checkAdBlock, 3000);   // Recheck every 3 sec
             } else {
-                // AdBlock disabled → reload site
-                location.reload();
+                if (overlay.style.display === "block") {
+                    location.reload(); // Reload only if it was previously blocked
+                }
+                overlay.style.display = "none"; // Keep site visible
             }
         });
     }
