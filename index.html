@@ -764,6 +764,16 @@
     font-size: 16px;
     margin: 8px 0;
 }
+
+/* bait element (normally invisible to users, but adblockers will hide it) */
+#bait-ad {
+    width: 1px;
+    height: 1px;
+    position: absolute;
+    left: -9999px;
+    top: -9999px;
+    visibility: hidden;
+}
 </style>
 
 <div id="adblock-overlay">
@@ -773,22 +783,24 @@
     <div id="adblock-instructions"></div>
 </div>
 
+<!-- hidden bait element -->
+<div id="bait-ad" class="ad-banner ad-unit sponsor"></div>
+
 <script>
 document.addEventListener("DOMContentLoaded", function () {
-    // OS detection for custom instructions
     function getMobileOS() {
-        let userAgent = navigator.userAgent || navigator.vendor || window.opera;
-        if (/android/i.test(userAgent)) return "Android";
-        if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) return "iOS";
+        let ua = navigator.userAgent || navigator.vendor || window.opera;
+        if (/android/i.test(ua)) return "Android";
+        if (/iPad|iPhone|iPod/.test(ua) && !window.MSStream) return "iOS";
         return "Other";
     }
 
     function showInstructions() {
         let os = getMobileOS();
-        let instructions = document.getElementById("adblock-instructions");
+        let box = document.getElementById("adblock-instructions");
 
         if (os === "iOS") {
-            instructions.innerHTML = `
+            box.innerHTML = `
                 <hr>
                 <p><b>On iPhone:</b><br>
                 1. Open <b>Settings</b><br>
@@ -797,15 +809,15 @@ document.addEventListener("DOMContentLoaded", function () {
                 4. Reload this page</p>
             `;
         } else if (os === "Android") {
-            instructions.innerHTML = `
+            box.innerHTML = `
                 <hr>
                 <p><b>On Android:</b><br>
-                • If using <b>Brave</b>: Disable "Shields" for this site<br>
-                • If using <b>AdGuard / Blokada</b>: Pause protection or whitelist this site<br>
-                • If using another browser: Check ad-block settings in the app</p>
+                • In <b>Brave</b>: Disable "Shields" for this site<br>
+                • In <b>AdGuard / Blokada</b>: Pause protection or whitelist this site<br>
+                • In Chrome/other browsers: Check ad-block app settings</p>
             `;
         } else {
-            instructions.innerHTML = `
+            box.innerHTML = `
                 <hr>
                 <p><b>On Desktop:</b><br>
                 Disable your ad blocker extension (AdBlock, uBlock, etc.) from the browser toolbar.</p>
@@ -813,30 +825,28 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    // AdBlock detection with both bait file and Google Ads
     function detectAdBlock(callback) {
-        let checks = 0, blocked = 0;
+        let checks = 0, blocked = false;
 
-        function checkScript(src, done) {
-            let test = document.createElement("script");
-            test.src = src + "?v=" + Date.now();
-            test.async = true;
-            test.onload = () => { done(false); };
-            test.onerror = () => { done(true); };
-            document.body.appendChild(test);
-        }
+        // Check bait script
+        let testScript = document.createElement("script");
+        testScript.src = "/ads.js?v=" + Date.now();
+        testScript.onload = () => finish(false);
+        testScript.onerror = () => finish(true);
+        document.body.appendChild(testScript);
 
-        function done(isBlocked) {
+        // Check bait element visibility
+        let bait = document.getElementById("bait-ad");
+        setTimeout(() => {
+            let baitHidden = !bait || bait.offsetParent === null || bait.offsetHeight === 0 || bait.offsetWidth === 0;
+            finish(baitHidden);
+        }, 100);
+
+        function finish(isBlocked) {
             checks++;
-            if (isBlocked) blocked++;
-            if (checks === 2) {
-                // only call blocked if BOTH failed
-                callback(blocked === 2);
-            }
+            if (isBlocked) blocked = true;
+            if (checks === 2) callback(blocked);
         }
-
-        checkScript("/ads.js", done); // local bait script (make sure this file exists!)
-        checkScript("https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js", done);
     }
 
     function checkAdBlock() {
