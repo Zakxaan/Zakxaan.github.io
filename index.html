@@ -764,20 +764,32 @@
     <p><em>The page will reload automatically once it’s disabled.</em></p>
 </div>
 
+<!-- bait element (ad blockers usually hide this) -->
+<div id="ad-bait" class="ads ad-banner sponsor" style="height:1px; width:1px; position:absolute; left:-9999px;"></div>
+
 <script>
 document.addEventListener("DOMContentLoaded", function () {
     function detectAdBlock(callback) {
+        let bait = document.getElementById("ad-bait");
+        let blocked = false;
+
+        // check if bait is hidden
+        if (!bait || bait.offsetParent === null || bait.offsetHeight === 0 || bait.offsetWidth === 0) {
+            blocked = true;
+        }
+
+        // also test loading ads.js (cache-busted)
         let testScript = document.createElement("script");
-        testScript.src = "/ads.js?v=" + Date.now(); // cache-bust
+        testScript.src = "/ads.js?v=" + Date.now();
         testScript.type = "text/javascript";
         testScript.async = true;
 
         testScript.onload = function () {
-            callback(false); // loaded = not blocked
+            callback(blocked); // rely on element check too
         };
 
         testScript.onerror = function () {
-            callback(true); // blocked
+            callback(true); // definitely blocked
         };
 
         document.body.appendChild(testScript);
@@ -789,7 +801,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             if (isBlocked) {
                 overlay.style.display = "block";
-                setTimeout(checkAdBlock, 3000);
+                setTimeout(checkAdBlock, 3000); // re-check
             } else {
                 if (overlay.style.display === "block") {
                     location.reload();
