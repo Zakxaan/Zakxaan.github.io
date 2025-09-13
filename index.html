@@ -744,27 +744,28 @@
     </script>
 <script>
 document.addEventListener("DOMContentLoaded", function () {
-    // Create a bait element that ad blockers usually hide
-    let bait = document.createElement("div");
-    bait.className = "adsbox"; 
-    bait.style.height = "1px";
-    bait.style.position = "absolute";
-    bait.style.left = "-9999px"; 
-    document.body.appendChild(bait);
+    function detectAdBlock(callback) {
+        let testScript = document.createElement("script");
+        testScript.src = "/ads.js"; // fake ad script (doesn't need to exist)
+        testScript.onerror = function () {
+            callback(true); // blocked
+        };
+        testScript.onload = function () {
+            callback(false); // not blocked
+        };
+        document.body.appendChild(testScript);
+    }
 
-    // Check after a short delay
-    setTimeout(function () {
-        if (!bait || bait.offsetParent === null || bait.offsetHeight === 0) {
-            // AdBlock detected -> redirect or block page
+    detectAdBlock(function (isBlocked) {
+        if (isBlocked) {
             document.body.innerHTML = `
                 <div style="text-align:center; padding:50px; font-family:sans-serif;">
-                    <h2>Ad Blocker Detected 🚫</h2>
+                    <h2>🚫 Ad Blocker Detected</h2>
                     <p>This website requires ads to function. Please disable your ad blocker and reload.</p>
                 </div>
             `;
         }
-        bait.remove();
-    }, 200);
+    });
 });
 </script>
 
