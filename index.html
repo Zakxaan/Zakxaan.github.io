@@ -756,16 +756,25 @@ document.addEventListener("DOMContentLoaded", function () {
         document.body.appendChild(testScript);
     }
 
-    detectAdBlock(function (isBlocked) {
-        if (isBlocked) {
-            document.body.innerHTML = `
-                <div style="text-align:center; padding:50px; font-family:sans-serif;">
-                    <h2>🚫 Ad Blocker Detected</h2>
-                    <p>This website requires ads to function. Please disable your ad blocker and reload.</p>
-                </div>
-            `;
-        }
-    });
+    function checkAdBlock() {
+        detectAdBlock(function (isBlocked) {
+            if (isBlocked) {
+                document.body.innerHTML = `
+                    <div style="text-align:center; padding:50px; font-family:sans-serif;">
+                        <h2>🚫 Ad Blocker Detected</h2>
+                        <p>This website requires ads to function. Please disable your ad blocker.</p>
+                        <p><em>We’ll reload the page automatically once it’s disabled.</em></p>
+                    </div>
+                `;
+                setTimeout(checkAdBlock, 3000); // re-check every 3 seconds
+            } else {
+                // AdBlock disabled → reload site
+                location.reload();
+            }
+        });
+    }
+
+    checkAdBlock();
 });
 </script>
 
