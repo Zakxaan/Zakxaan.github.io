@@ -768,16 +768,16 @@
 document.addEventListener("DOMContentLoaded", function () {
     function detectAdBlock(callback) {
         let testScript = document.createElement("script");
-        testScript.src = "/ads.js"; // fake ad script
+        testScript.src = "/ads.js?v=" + Date.now(); // cache-bust
         testScript.type = "text/javascript";
         testScript.async = true;
 
         testScript.onload = function () {
-            callback(false); // Not blocked
+            callback(false); // loaded = not blocked
         };
 
         testScript.onerror = function () {
-            callback(true); // Blocked
+            callback(true); // blocked
         };
 
         document.body.appendChild(testScript);
@@ -788,13 +788,13 @@ document.addEventListener("DOMContentLoaded", function () {
             let overlay = document.getElementById("adblock-overlay");
 
             if (isBlocked) {
-                overlay.style.display = "block";  // Show restriction overlay
-                setTimeout(checkAdBlock, 3000);   // Recheck every 3 sec
+                overlay.style.display = "block";
+                setTimeout(checkAdBlock, 3000);
             } else {
                 if (overlay.style.display === "block") {
-                    location.reload(); // Reload only if it was previously blocked
+                    location.reload();
                 }
-                overlay.style.display = "none"; // Keep site visible
+                overlay.style.display = "none";
             }
         });
     }
