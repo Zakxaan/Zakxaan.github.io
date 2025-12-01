@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Flizzyr-7-Comps</title>
@@ -485,17 +486,22 @@
 
         /* Card Styles */
         .card {
-            background-color: #d70d0d; /* Red color */
-            color: white;
-            border-radius: 10px;
-            overflow: hidden;
-            height: 350px; /* Bigger card */
-            opacity: 0; /* Initially hidden */
-            transform: translateY(50px) scale(1); /* Start normal size */
-            transition: opacity 0.8s ease-out, transform 0.4s ease-out, box-shadow 0.4s ease-in-out;
-            display: flex;
-            flex-direction: column;
-        }
+    background-color: #d70d0d;
+    color: var(--text-light);
+    border-radius: 10px;
+    overflow: hidden;
+    height: auto !important;      /* <-- FIX: allow the card to expand */
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.7s cubic-bezier(.2,.9,.2,1), 
+                transform 0.45s cubic-bezier(.2,.9,.2,1), 
+                box-shadow 0.25s ease;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    text-decoration: none;
+}
+
 
         /* Make card visible when scrolled */
         .card.show {
@@ -510,31 +516,45 @@
             box-shadow: 0px 10px 25px rgba(255, 0, 0, 0.6); /* Red glow */
         }
 
-        /* Image Styling */
-        .card img {
-            width: 100%;
-            height: 370px; /* Bigger image */
-            object-fit: cover;
-        }
+    
 
         /* Card Body (Smaller Text Area) */
         .card-body {
-            padding: 10px;
+            padding: 100px;
             height: 80px; /* Reduced text area */
             display: flex;
             flex-direction: column;
             justify-content: center;
         }
 
-        .card-title {
-            font-size: 14px;
-            margin: 0;
+        .card img {
+  width: 100%;
+  height: 450px;       /* ↑ larger desktop thumbnail (was 220px) */
+  object-fit: cover;
+  display: block;
+  transition: transform .35s ease; /* keeps hover feeling smooth */
+}
+        
+        /* card body with description under the photo */
+        .card-body {
+            padding: 12px 14px;
+            display: block;
+            height: auto;
         }
-
+        
+        .card-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 6px;
+        }
+        
         .card-text {
-            font-size: 12px;
-            margin: 5px 0 0;
-            color: #fff; /* White text for contrast */
+            font-size: 13px;
+            line-height: 1.5;
+            color: white;
+            margin: 0;
+            white-space: normal;
         }
 
         /* Responsive - Make it 2 per row on smaller screens */
@@ -624,7 +644,7 @@
                     <a href="Feed.html">Feed</a>
                     <a href="Satfeed.html">Satfeed</a>
                     <a href="assets.html">Assets</a>
-                    <a href="contact.html">Contact Me</a>
+                    <a href="contact.html">Contact Us</a>
                     <a href="donate.html">Donate Me</a>
                 </nav>
             </div>
@@ -648,21 +668,64 @@
 
                 <div class="card-container">
             <!-- ScenePack 1 -->
-            <a href="timer1.html?scp_link=https://buzzheavier.com/dk90zb7vimsg" class="card">
-                <img src="images/vini.webp" alt="Scene 1">
-                <div class="card-body">
-                    <h5 class="card-title">Vini Jr</h5>
-                    <p class="card-text">Cinematic clips.</p>
-                </div>
-            </a>
+            <!-- Clean version: matches other cards (recommended) -->
+<a href="timer1.html?scp_link=https://buzzheavier.com/dk90zb7vimsg" class="card">
+                        <img src="images/vini.webp" alt="Vini Jr">
+                        <div class="card-body">
+                            <h5 class="card-title">WHO IS VINÍCIUS JÚNIOR?</h5>
+                            <p class="card-text">
+Vinícius José Paixão de Oliveira Júnior, commonly known as Vinícius Júnior or simply Vini Jr, is a Brazilian professional footballer who plays as a winger for Real Madrid and the Brazil national team. Known for his electric pace, dazzling dribbling, and flair, Vinícius has become one of the brightest young talents in world football. His journey from Flamengo’s academy in Brazil to the grand stage of the Santiago Bernabéu is a story of determination, growth, and hard work.
+
+The 2022–2023 season marked a defining chapter in Vinícius Júnior’s career — a period when he transformed from a promising youngster into one of Real Madrid’s most consistent and decisive players. After his breakout 2021–2022 season, where he scored the winning goal in the UEFA Champions League final against Liverpool, all eyes were on the young Brazilian to see if he could maintain his brilliance. He not only lived up to expectations but also elevated his game to a new level.
+
+Throughout the 2022–2023 campaign, Vinícius became the heartbeat of Real Madrid’s attack. With Karim Benzema occasionally sidelined by injuries, Vini took on greater responsibility, leading the frontline with confidence and creativity. His combination of speed, technique, and composure in front of goal made him a nightmare for defenders across Europe. He finished the season with over 23 goals and 21 assists in all competitions — numbers that highlighted both his scoring ability and playmaking vision.
+
+Vinícius was instrumental in Real Madrid’s success that season, helping the club win the FIFA Club World Cup and the Copa del Rey, where he scored crucial goals in key moments. His performance in the Champions League quarterfinal against Chelsea, where he tormented the defense with his unstoppable runs and quick footwork, earned him global praise. Even in defeats, like the semifinal against Manchester City, Vini stood out as Madrid’s most threatening player, showing courage and brilliance against world-class opposition.
+
+Off the field, Vinícius’s season was also defined by his resilience. He faced multiple instances of racial abuse during away games in Spain, yet he responded with strength, class, and exceptional performances. His determination to fight against racism made him not just a footballing icon, but also a symbol of dignity and courage in modern sports.
+
+By the end of the 2022–2023 season, Vinícius Júnior had firmly established himself as one of the top players in the world. His chemistry with teammates like Benzema, Modrić, and Valverde reflected Real Madrid’s balance of youth and experience, while his flair and joy on the pitch brought back memories of Brazilian legends like Ronaldinho and Neymar.
+
+The season proved that Vinícius was no longer just a rising star — he was a leader, an entertainer, and one of the defining faces of Real Madrid’s new generation.
+                            </p>
+                        </div>
+                    </a>
+
+
             
 
             <!-- ScenePack 2 -->
             <a href="timer1.html?scp_link=https://buzzheavier.com/qs41xdwul4jn" class="card">
                 <img src="images/RonaldoUltimatescpcover.png" alt="Scene 2">
                 <div class="card-body">
-                    <h5 class="card-title">CR7 Ultimate</h5>
-                    <p class="card-text">Another collection.</p>
+                    <h5 class="card-title">WHO IS CRISTIANO RONALDO?</h5>
+                    <p class="card-text">Cristiano Ronaldo dos Santos Aveiro, widely known as Cristiano Ronaldo, is a Portuguese professional footballer regarded as one of the greatest players in the history of the sport. Born on February 5, 1985, in Madeira, Portugal, Ronaldo’s journey from a small island boy to global football icon is nothing short of legendary. His era at Real Madrid (2009 – 2018) is remembered as one of the most dominant periods in football history — both for the club and the player himself.
+
+When Cristiano Ronaldo signed for Real Madrid from Manchester United in the summer of 2009 for a then-world-record fee of €94 million, expectations were immense. Yet, Ronaldo exceeded every possible standard. Over nine unforgettable seasons at the Santiago Bernabéu, he not only redefined goal-scoring records but also became the very symbol of ambition, determination, and excellence. His arrival marked the beginning of a new golden era for Los Blancos.
+
+During his time at Real Madrid, Ronaldo played 438 matches and scored an extraordinary 450 goals, making him the club’s all-time leading scorer. His consistency was unmatched — season after season, he produced breathtaking performances in La Liga, the UEFA Champions League, and every other major competition. His athleticism, precision, and lethal finishing made him the complete forward: capable of scoring with both feet, dominating in the air, and delivering under pressure.
+
+The Champions League became Ronaldo’s personal stage. He guided Real Madrid to four Champions League titles in just five seasons (2014, 2016, 2017, 2018), including a historic “three-peat” under coach Zinedine Zidane — a feat no club had achieved in the modern era. In these campaigns, Ronaldo consistently rose to the occasion, scoring crucial goals in knockout rounds and finals, earning him multiple Ballon d’Or awards as the world’s best player.
+
+Ronaldo’s rivalry with Lionel Messi during his Real Madrid years elevated football to new heights. Every El Clásico against Barcelona became a global spectacle — two of the game’s greatest athletes pushing each other to unimaginable standards. Ronaldo’s charisma, discipline, and hunger for victory inspired teammates and terrified opponents. Alongside legends like Sergio Ramos, Luka Modrić, Karim Benzema, and Marcelo, he helped Real Madrid dominate Europe for nearly a decade.
+
+Beyond his scoring records, Ronaldo’s work ethic and professionalism set the benchmark for future generations. His relentless training routine, strict diet, and mental focus turned him into an example of dedication. Fans admired not only his goals but also his passion, leadership, and never-give-up attitude. He became the ultimate role model for aspiring players worldwide.
+
+Under his leadership, Real Madrid won 16 major trophies, including:
+
+4 UEFA Champions Leagues
+
+2 La Liga titles
+
+2 Copa del Rey titles
+
+3 UEFA Super Cups
+
+3 FIFA Club World Cups
+
+By the time Ronaldo left for Juventus in 2018, he had already etched his name into the heart of every Madridista. His farewell marked the end of an era — one defined by glory, dominance, and countless unforgettable moments. From his thunderous long-range strikes to his iconic goal celebrations, Cristiano Ronaldo’s Real Madrid legacy is eternal.
+
+Cristiano’s era at Real Madrid was not just about numbers or trophies — it was about a mentality of greatness. He turned ambition into art, pressure into performance, and dreams into history. To this day, his name remains synonymous with Real Madrid’s identity, and his influence continues to inspire both the club and football fans around the world.</p>
                 </div>
             </a>
 
@@ -670,8 +733,24 @@
             <a href="timer1.html?scp_link=https://buzzheavier.com/3qsiogj969on?fbclid=PAVERFWAM1bEhleHRuA2FlbQIxMAABp5CoDsdrLDrkhBo5YVGZcT1EGm0g7JQ-1XAFkj90cvB7ucMCiSoNuOg9KIlf_aem_cYSdItWN7pymZWetHLRV0Q" class="card">
                 <img src="images/belscp.webp" alt="Scene 2">
                 <div class="card-body">
-                    <h5 class="card-title">Bell</h5>
-                    <p class="card-text">Another collection.</p>
+                    <h5 class="card-title">WHO IS JUDE BELLINGHAM?</h5>
+                    <p class="card-text">Jude Victor William Bellingham, commonly known as Jude Bellingham, is an English professional footballer who plays as a midfielder for Real Madrid and the England national team. Born on June 29, 2003, in Stourbridge, England, Bellingham is widely regarded as one of the most talented and mature young players of his generation. His combination of intelligence, power, creativity, and leadership at such a young age has made him one of football’s most complete midfielders.
+
+After rising to prominence with Birmingham City and later shining at Borussia Dortmund, Bellingham made a sensational move to Real Madrid in the summer of 2023 for over €100 million — making him one of the most expensive English players in history. Despite the pressure of joining one of the biggest clubs in the world, Bellingham adapted instantly, becoming a crucial part of Carlo Ancelotti’s team from the very start of the 2023–2024 season.
+
+Jude Bellingham’s arrival signaled a new era for Real Madrid — one built around youth, energy, and technical brilliance. Wearing the iconic number 5 jersey, once worn by club legend Zinedine Zidane, Bellingham embraced the responsibility with confidence and grace. In just his first few games, he captivated fans with his commanding presence, tactical intelligence, and ability to arrive in the box at the perfect time. His performances were not just impressive for a newcomer — they were historic.
+
+Throughout the 2023–2024 campaign, Bellingham played like a seasoned veteran. His ability to control the midfield, score goals, and inspire teammates made him the heartbeat of Real Madrid’s system. He showcased a perfect balance between physical strength and technical excellence, blending the defensive discipline of a deep-lying playmaker with the attacking instinct of a forward. His late runs into the box and calm finishing led to a remarkable goal tally for a midfielder, placing him among the top scorers in La Liga and the Champions League.
+
+One of his most memorable moments came during El Clásico against Barcelona, where Bellingham scored a stunning long-range equalizer and followed it up with a last-minute winner — instantly writing his name into Real Madrid folklore. Performances like these not only highlighted his skill but also his mentality: fearless, composed, and hungry for greatness.
+
+Off the pitch, Jude represents the modern football professional — humble, articulate, and focused. His leadership qualities stand out despite his young age, earning respect from senior teammates like Luka Modrić, Toni Kroos, and Dani Carvajal. His maturity and discipline have drawn comparisons to some of the greatest midfielders in football history, yet his unique style sets him apart — a blend of energy, technique, and intelligence rarely seen in such a young player.
+
+Bellingham’s impact extended beyond goals and assists; he redefined what it means to be a modern midfielder. His versatility allows him to excel in various roles — from box-to-box playmaker to advanced attacking midfielder — and his tactical understanding of the game is years ahead of his age. Every performance reflects his passion, work ethic, and deep understanding of Real Madrid’s winning culture.
+
+By the end of his debut season, Jude Bellingham had already become a fan favorite and a global superstar. He was awarded multiple individual honors, including La Liga Player of the Month, and his name began circulating among future Ballon d’Or contenders. In a team filled with legends and rising stars, Bellingham stood out as the new face of Real Madrid’s future — confident, composed, and committed to continuing the club’s legacy of excellence.
+
+Jude Bellingham’s Real Madrid era is still in its early chapters, yet it already feels like the start of something historic. His blend of talent, intelligence, and leadership embodies everything the club stands for: grace, power, and greatness. If his first season is any indication, Bellingham is destined to be not just one of Real Madrid’s finest midfielders, but one of the greatest of his generation.</p>
                 </div>
             </a>
 
@@ -679,8 +758,8 @@
             <a href="timer1.html?scp_link=https://buzzheavier.com/ysei1s27h81k" class="card">
                 <img src="images/Cole_palmer_Scenepack_PREVIEW_00000.webp" alt="Scene 4">
                 <div class="card-body">
-                    <h5 class="card-title">ScenePack 4</h5>
-                    <p class="card-text">More cinematic beauty.</p>
+                    <h5 class="card-title">Who is Cole Palmer ?</h5>
+                    <p class="card-text">Cole Jermaine Palmer (born 6 May 2002) is an English professional footballer who plays as an attacking midfielder and winger for Chelsea FC and the England national team. A highly creative, technically gifted left-footer, he is known for his dribbling, passing vision, composure, and goal-scoring ability. Palmer joined Manchester City’s academy at age 8, made his senior debut in 2020, and later moved to Chelsea in 2023, where he quickly became a standout performer with an exceptional 2023–24 season. His versatility allows him to play as a number 10, winger, or forward, and he has gained recognition as one of Europe’s brightest young attacking talents. Despite his rise, Palmer has faced recent injury setbacks in 2025, including a groin issue followed by a fractured toe, which have temporarily affected his availability for club and country.</p>
                 </div>
             </a>
 
@@ -713,10 +792,39 @@
         </main>
         
         <footer>
-            <div class="footer-content">
-                <p class="copyright">&copy; 2025 Flizzyr-7-Comps. All rights reserved.</p>
-            </div>
-        </footer>
+    <div class="footer-content">
+
+        <!-- Footer Links -->
+        <div style="
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+        ">
+            <a href="faq.html" 
+               style="color: var(--accent); text-decoration: none; font-weight: 500;">
+               FAQ
+            </a>
+
+            <a href="terms.html" 
+               style="color: var(--accent); text-decoration: none; font-weight: 500;">
+               Terms & Conditions
+            </a>
+
+            <a href="privacy.html" 
+               style="color: var(--accent); text-decoration: none; font-weight: 500;">
+               Privacy Policy
+            </a>
+        </div>
+
+        <!-- Copyright -->
+        <p class="copyright">
+            &copy; 2025 Flizzyr-7-Comps. All rights reserved.
+        </p>
+
+    </div>
+</footer>
         
         <div class="theme-toggle">
             <i class="fas fa-moon"></i>

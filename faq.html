@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>FAQ — Flizzyr7 Comps</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0f0f10;
+      --card:#111;
+      --text:#f5f5f5;
+      --muted:#cfcfcf;
+      --accent:#d70d0d;
+      --container:1200px;
+      --radius:10px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
+      background:linear-gradient(180deg,#0b0b0b 0%, #0f0f10 100%);
+      color:var(--text);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.5;
+    }
+
+    header.site-header{
+      background:transparent;
+      padding:18px 20px;
+      border-bottom:1px solid rgba(255,255,255,0.04);
+      position:sticky;
+      top:0;
+      z-index:50;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .site-header .inner{max-width:var(--container); width:100%; display:flex; align-items:center; justify-content:space-between; gap:12px}
+    .logo{font-weight:700; color:var(--text); text-decoration:none; font-size:1.1rem}
+    .logo span{color:var(--accent)}
+    .back-link{color:var(--muted); text-decoration:none; font-size:0.95rem; padding:8px 12px; border-radius:8px; border:1px solid rgba(255,255,255,0.03)}
+    .back-link:hover{background:rgba(255,255,255,0.02); color:var(--text)}
+
+    main{max-width:var(--container); margin:28px auto; padding:0 18px;}
+    .hero{text-align:center; margin-bottom:18px}
+    .hero h1{font-size:28px; margin:6px 0; letter-spacing:0.2px}
+    .hero p{color:var(--muted); margin:6px 0 0; font-size:0.98rem; max-width:900px; margin-left:auto; margin-right:auto}
+
+    .faq-card{
+      margin-top:20px;
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:var(--radius);
+      padding:18px;
+      box-shadow:0 8px 30px rgba(0,0,0,0.5);
+      border:1px solid rgba(255,255,255,0.03);
+    }
+
+    .qa{margin:0; padding:18px 0; border-bottom:1px solid rgba(255,255,255,0.03)}
+    .qa:last-child{border-bottom: none}
+    .q{font-weight:600; color:var(--text); margin-bottom:6px; font-size:1rem}
+    .a{color:var(--muted); margin:0; font-size:0.95rem; white-space:pre-line}
+
+    /* compact list style for numbers */
+    .qa-number {
+      display:inline-block;
+      min-width:36px;
+      height:36px;
+      line-height:36px;
+      text-align:center;
+      border-radius:8px;
+      background:rgba(215,13,13,0.12);
+      color:var(--accent);
+      font-weight:700;
+      margin-right:12px;
+      vertical-align:middle;
+    }
+
+    /* footer small note */
+    .help { margin-top:14px; color:var(--muted); font-size:0.92rem; }
+
+    /* responsive */
+    @media (max-width:720px){
+      .qa{padding:12px 0}
+      .hero h1{font-size:22px}
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="inner">
+      <a class="logo" href="index.html">Flizzyr7<span>-Comps</span></a>
+      <a class="back-link" href="index.html" title="Go back to site">Back to site</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>Frequently Asked Questions (FAQ)</h1>
+      <p>Answers to common questions about downloading and using ScenePacks. If you still need help, reach us via the Contact page or Discord.</p>
+    </section>
+
+    <article class="faq-card" aria-labelledby="faq-heading">
+      <!-- 1 -->
+      <div class="qa" id="q1">
+        <div><span class="qa-number">1</span><span class="q">Are the football scenepacks free to use?</span></div>
+        <p class="a">Yes! Most of the scenepacks available on our website are completely free for personal editing projects. You can use them in your montages, tributes, or highlight edits. However, please remember that the original match footage may still be copyrighted by its rightful owners, so avoid reuploading full clips without transformation or credit.</p>
+      </div>
+
+      <!-- 2 -->
+      <div class="qa" id="q2">
+        <div><span class="qa-number">2</span><span class="q">How can I download scenepacks?</span></div>
+        <p class="a">Just browse through our collection, click on the scenepack you like, and hit the download button. It’s simple and takes only a few seconds. If any link is broken, feel free to contact us so we can fix it quickly.</p>
+      </div>
+
+      <!-- 3 -->
+      <div class="qa" id="q3">
+        <div><span class="qa-number">3</span><span class="q">How often do you upload new scenepacks?</span></div>
+        <p class="a">We regularly update our library with the latest and most requested football moments — from Ronaldo’s iconic goals to Bellingham’s recent performances. Keep checking back for fresh content every week.</p>
+      </div>
+
+      <!-- 4 -->
+      <div class="qa" id="q4">
+        <div><span class="qa-number">4</span><span class="q">Can I request a specific player or match?</span></div>
+        <p class="a">Of course! We love taking requests. If there’s a particular player, match, or moment you want, just reach out through our contact page or Discord (flizzyr7). We’ll try to make it available soon.</p>
+      </div>
+
+      <!-- 5 -->
+      <div class="qa" id="q5">
+        <div><span class="qa-number">5</span><span class="q">What if I face issues while downloading?</span></div>
+        <p class="a">If downloads aren’t working or you encounter an error, contact us through Discord or email. We’ll respond as soon as possible and help you get the files you need.</p>
+      </div>
+
+      <!-- 6 -->
+      <div class="qa" id="q6">
+        <div><span class="qa-number">6</span><span class="q">Can I use these clips on YouTube or social media?</span></div>
+        <p class="a">Yes, you can use them for edits on platforms like YouTube, TikTok, or Instagram. Just make sure your videos follow fair use and platform policies. Avoid uploading unedited clips — always add your own creative touch.</p>
+      </div>
+
+      <!-- 7 -->
+      <div class="qa" id="q7">
+        <div><span class="qa-number">7</span><span class="q">Can I reupload or share the same clips elsewhere?</span></div>
+        <p class="a">No. Directly reuploading or redistributing our clips is not allowed. You can, however, share our website link with others who might find the clips useful. This helps our community grow and stay fair for everyone.</p>
+      </div>
+
+      <!-- 8 -->
+      <div class="qa" id="q8">
+        <div><span class="qa-number">8</span><span class="q">Are the clips copyrighted?</span></div>
+        <p class="a">Most football footage is owned by official broadcasters or clubs. Our scenepacks are shared for editing and learning purposes only. If you plan to monetize your edits, make sure your work falls under fair use or get the proper permissions.</p>
+      </div>
+
+      <!-- 9 -->
+      <div class="qa" id="q9">
+        <div><span class="qa-number">9</span><span class="q">Can I monetize edits that use these scenepacks?</span></div>
+        <p class="a">It depends on how you use them. If your edit is transformative — meaning it includes effects, transitions, or storytelling — some platforms allow monetization. Always check their policies first to stay safe.</p>
+      </div>
+
+      <!-- 10 -->
+      <div class="qa" id="q10">
+        <div><span class="qa-number">10</span><span class="q">How can I stay copyright-compliant?</span></div>
+        <p class="a">Avoid using full match clips, add your own effects, and credit official sources where possible. If you’re unsure about using certain footage for monetized projects, consider getting advice or checking the platform’s copyright guidelines.</p>
+      </div>
+
+      <!-- 11 -->
+      <div class="qa" id="q11">
+        <div><span class="qa-number">11</span><span class="q">Can I remix or modify the clips?</span></div>
+        <p class="a">Yes! We encourage creativity. Feel free to add effects, transitions, and audio to make unique edits. Just remember, the final content should be your own creation, not a simple reupload.</p>
+      </div>
+
+      <!-- 12 -->
+      <div class="qa" id="q12">
+        <div><span class="qa-number">12</span><span class="q">Do you offer HD or 4K clips?</span></div>
+        <p class="a">Definitely. We focus on providing the highest-quality scenepacks — including HD and 4K resolutions — so your edits always look clean and professional.</p>
+      </div>
+
+      <p class="help">If you have any other questions, feel free to reach out to us anytime — we’re always here to help editors grow and create!</p>
+    </article>
+  </main>
+
+</body>
+</html>

@@ -485,15 +485,20 @@
 
         /* Card Styles */
         .card {
-    background-color: #d7860d; /* Red color */
+    background-color: #d7860d;
+    color: var(--text-light);
     border-radius: 10px;
     overflow: hidden;
-    height: 350px; /* Bigger card */
-    opacity: 0; /* Initially hidden */
-    transform: translateY(50px) scale(1); /* Start normal size */
-    transition: opacity 0.8s ease-out, transform 0.4s ease-out, box-shadow 0.4s ease-in-out;
+    height: auto !important;      /* <-- FIX: allow the card to expand */
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.7s cubic-bezier(.2,.9,.2,1), 
+                transform 0.45s cubic-bezier(.2,.9,.2,1), 
+                box-shadow 0.25s ease;
     display: flex;
     flex-direction: column;
+    border: 1px solid black;
+    text-decoration: none;
 }
 
 /* Make card visible when scrolled */
@@ -511,15 +516,34 @@
 
 /* Image Styling */
 .card img {
-    width: 100%;
-    height: 100%; /* Fill entire card */
-    object-fit: cover; /* Prevents stretching */
+  width: 100%;
+  height: 450px;       /* ↑ larger desktop thumbnail (was 220px) */
+  object-fit: cover;
+  display: block;
+  transition: transform .35s ease; /* keeps hover feeling smooth */
 }
 
 /* Hide the text area */
 .card-body {
-    display: none; /* Hides title and text */
-}
+            padding: 12px 14px;
+            display: block;
+            height: auto;
+        }
+        
+        .card-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 6px;
+        }
+        
+        .card-text {
+            font-size: 13px;
+            line-height: 1.5;
+            color: white;
+            margin: 0;
+            white-space: normal;
+        }
 
 
 
@@ -610,7 +634,7 @@
                     <a href="Feed.html">Feed</a>
                     <a href="Satfeed.html">Satfeed</a>
                     <a href="assets.html">Assets</a>
-                    <a href="contact.html">Contact Me</a>
+                    <a href="contact.html">Contact Us</a>
                     <a href="donate.html">Donate Me</a>
                 </nav>
             </div>
@@ -636,8 +660,24 @@
             <a href="timer1.html?scp_link=https://buzzheavier.com/ibcuxrjvll62?fbclid=PAVERFWAMv_yRleHRuA2FlbQIxMAABpzxKj81lONTBe8uIzXD4sE56Q8wsBaP26b5-17u5d4IG8nbEvn__JNGbMNXi_aem_EzDibWXtHhWr6ia6Obwp2A" class="card">
                 <img src="images/RonaldovsChelseacoverWEB.webp" alt="Scene 1">
                 <div class="card-body">
-                    <h5 class="card-title">CR7</h5>
-                    <p class="card-text">Cinematic clips.</p>
+                    <h5 class="card-title">CRISTIANO RONALDO VS CHELSEA – UCL FINAL 2008</h5>
+                    <p class="card-text">The 2008 UEFA Champions League Final between Manchester United and Chelsea was one of the most dramatic and unforgettable matches in football history. Played on May 21, 2008, at the Luzhniki Stadium in Moscow, it was the first-ever all-English Champions League final — and it showcased two of the Premier League’s most powerful sides at their peak. But among all the stars on that night, one man stood at the center of attention — Cristiano Ronaldo.
+
+At just 23 years old, Ronaldo was already establishing himself as one of the best players in the world. Coming off a phenomenal season where he scored 42 goals in all competitions, he was Manchester United’s talisman — the player capable of turning any moment into magic. The final in Moscow was his chance to prove his greatness on the biggest stage of European football.
+
+From the very first whistle, Ronaldo looked dangerous. His pace, confidence, and dribbling caused constant problems for Chelsea’s defense. In the 26th minute, his brilliance came to life. Receiving a precise cross from Wes Brown on the right wing, Ronaldo rose above defender Michael Essien and delivered a perfectly timed towering header into the far corner past Petr Čech. It was a stunning goal — pure athleticism, precision, and power. Ronaldo celebrated with his iconic stance, arms wide open, soaking in the moment as Manchester United took a 1–0 lead.
+
+But the final was far from over. Just before halftime, Chelsea equalized through Frank Lampard, after a defensive mix-up. The game became an intense battle — a clash of tactics, emotions, and endurance. Ronaldo continued to threaten Chelsea’s backline throughout the second half, forcing Čech into several saves. His dribbling down the left wing and ability to cut inside made him the focal point of United’s attack, but luck seemed to evade him as the match wore on.
+
+After 90 minutes and extra time, the score remained 1–1, and the 2008 Champions League Final went to penalties — a moment of pure tension. Ronaldo stepped up to take Manchester United’s third penalty. As one of the world’s best, everyone expected him to score. But under the Moscow rain, Ronaldo hesitated in his run-up, and Petr Čech guessed correctly — Ronaldo’s penalty was saved. For a moment, his dream of European glory seemed to slip away. He stood devastated, covering his face, fearing he had let his team down.
+
+Yet football, as always, had its twists. Chelsea captain John Terry had the chance to win it for his team but slipped and missed. The shootout continued, and in the end, Edwin van der Sar saved Nicolas Anelka’s penalty, crowning Manchester United the Champions of Europe. Ronaldo collapsed to the ground in tears — tears of joy, relief, and redemption. Despite his penalty miss, he had been United’s standout performer throughout the match and the entire campaign.
+
+That night in Moscow symbolized everything about Cristiano Ronaldo’s character — brilliance, emotion, and resilience. His header was one of the defining moments of the final, and his overall performance confirmed his status as a world-class player. Later that year, his achievements — including the Champions League triumph and his record-breaking season — earned him his first Ballon d’Or, officially recognizing him as the best player in the world.
+
+The 2008 final was more than just a game for Cristiano Ronaldo; it was a turning point. It proved that he could shine on football’s grandest stage, handle immense pressure, and overcome setbacks. His journey from the streets of Madeira to lifting the Champions League trophy in Moscow became a story of hard work, determination, and unbreakable belief.
+
+In the end, Ronaldo’s performance against Chelsea in that unforgettable night wasn’t just about scoring a goal — it was about becoming a champion. It was the moment the world realized that Cristiano Ronaldo was not just a superstar — he was destined to become a legend.</p>
                 </div>
             </a>            
 
@@ -645,8 +685,28 @@
             <a href="timer1.html?scp_link=https://buzzheavier.com/jbnbtgougc0y?fbclid=PAVERFWAMv_uJleHRuA2FlbQIxMAABp3wPTZ2vke0I5W6BMHkmIW4KOr3mJJpezE9KqIIGum5-mjpbJS-teHj-KzE7_aem_3NUichCSRVfXq01V_0YOMw" class="card">
                 <img src="images/RonaldovsArsenalcoverWEB.webp" alt="Scene 2">
                 <div class="card-body">
-                    <h5 class="card-title">Comps 2</h5>
-                    <p class="card-text">Another collection.</p>
+                    <h5 class="card-title">CRISTIANO RONALDO VS ARSENAL – UCL SEMI-FINAL 2008/2009</h5>
+                    <p class="card-text">The 2008/2009 UEFA Champions League semi-final between Manchester United and Arsenal was a showdown between two of England’s most exciting teams. It brought together Sir Alex Ferguson’s disciplined, counter-attacking Manchester United and Arsène Wenger’s elegant, attacking Arsenal side. But in the middle of all the tactics and tension stood one man who would define the tie — Cristiano Ronaldo.
+
+Having just come off a historic 2007/2008 season where he won the Champions League and the Ballon d’Or, Ronaldo entered this semi-final as the best player in the world. His hunger for success, athleticism, and confidence were unmatched. Across both legs, he reminded the world why he was football’s ultimate big-game player.
+
+The first leg at Old Trafford ended 1–0 in United’s favor thanks to a goal from John O’Shea, but the night still belonged to Ronaldo. He constantly tormented Arsenal’s defense, hitting the crossbar with a powerful header and testing Manuel Almunia multiple times with long-range efforts. Even though he didn’t score, his presence dictated the flow of the game — every counterattack, every surge forward seemed to start or end with him.
+
+However, it was in the second leg at the Emirates Stadium on May 5, 2009, where Cristiano Ronaldo produced one of the most complete and dominant performances of his entire Manchester United career.
+
+From the opening minutes, United looked sharp, but Ronaldo was on another level — focused, fearless, and explosive. In the 8th minute, his quick movement and precise cross set up Ji-Sung Park to score the opening goal after a defensive mistake by Kieran Gibbs. Just three minutes later came the moment of genius. United won a free kick about 40 yards out — far from what most would consider shooting range. But for Ronaldo, distance meant nothing.
+
+He took a deep breath, measured his steps, and unleashed one of the most powerful free kicks in Champions League history. The ball swerved, dipped, and flew past Almunia, who was left rooted to the spot. The Emirates fell silent as Ronaldo sprinted toward the corner flag, arms outstretched in celebration. It was a statement goal — one that symbolized dominance, confidence, and pure talent.
+
+But Ronaldo wasn’t done yet. In the second half, he completed his masterclass. A lightning-fast counterattack — starting deep in United’s half — saw Wayne Rooney carry the ball forward before setting up Ronaldo, who arrived perfectly to slot the ball home for United’s third goal. The move was executed with breathtaking precision, taking only 11 seconds from defense to goal. It was the definition of Manchester United under Sir Alex Ferguson: speed, intelligence, and ruthlessness.
+
+By full time, United had won 3–1 on the night and 4–1 on aggregate, advancing to their second consecutive Champions League final. Ronaldo’s performance — two goals and one assist — was nothing short of spectacular. The entire Arsenal defense had been taken apart by his pace, movement, and finishing. Commentators and fans alike hailed it as one of his greatest European nights.
+
+That semi-final showcased every aspect of Cristiano Ronaldo’s greatness — the athleticism, the technique, the composure, and the hunger to deliver when it mattered most. He wasn’t just scoring goals; he was controlling the rhythm of the game and inspiring his teammates through sheer brilliance.
+
+Though Manchester United went on to lose the final to Barcelona, Ronaldo’s performance against Arsenal remains one of his most memorable in a United shirt. It perfectly captured the essence of his game — a mix of raw power and finesse, arrogance and elegance, precision and passion.
+
+That night at the Emirates was more than just a football match; it was a demonstration of world-class excellence. Ronaldo didn’t just defeat Arsenal — he dismantled them, proving once again that when the lights shine brightest, Cristiano Ronaldo rises highest.</p>
                 </div>
             </a>
 
@@ -654,9 +714,28 @@
             <a href="timer1.html?scp_link=https://buzzheavier.com/1ts9u41fwo2s" class="card">
                 <img src="images/haaland_vs_maldova_cover_web_00000.webp" alt="Scene 3">
                 <div class="card-body">
-                    <h5 class="card-title">Haaland Vs Moldova
-                        2025/2026</h5>
-                    <p class="card-text">More cinematic beauty.</p>
+                    <h5 class="card-title">WHO IS ERLING HAALAND?</h5>
+                    <p class="card-text">Erling Braut Haaland is a Norwegian professional footballer who plays as a striker for Manchester City and the Norway national team. Born on July 21, 2000, in Leeds, England, Haaland is one of the most prolific and feared forwards in world football. Known for his incredible pace, strength, positioning, and lethal finishing, he has redefined what it means to be a modern striker.
+
+Haaland’s journey to the top began at Bryne FK in Norway, where his raw talent and athleticism quickly caught attention. He soon moved to Molde FK, managed by Ole Gunnar Solskjær, who helped shape his finishing ability and movement in the box. However, it was at Red Bull Salzburg in Austria where Haaland’s name exploded onto the global stage. In the 2019–2020 UEFA Champions League, he scored 8 goals in just 6 games, including a memorable hat-trick on his debut — a feat that instantly made him one of Europe’s most sought-after talents.
+
+In January 2020, Haaland joined Borussia Dortmund, and his rise continued at lightning speed. He scored a hat-trick on his Bundesliga debut and went on to net 86 goals in just 89 appearances. His incredible goal-to-game ratio, combined with his ruthless finishing and composure under pressure, established him as one of the best young strikers in the world.
+
+But Haaland’s most defining move came in the summer of 2022, when he signed for Manchester City under manager Pep Guardiola. The football world watched closely — how would a powerhouse striker fit into Guardiola’s tactical system known for intricate passing and false nines? The answer came immediately: perfectly.
+
+From the moment he arrived, Haaland shattered records. His physical dominance, speed, and finishing turned Manchester City’s attack into a scoring machine. In his debut Premier League season (2022–2023), Haaland scored a record-breaking 36 goals, the most ever in a single Premier League campaign. Across all competitions, he netted 52 goals in 53 matches, helping Manchester City secure an historic treble — winning the Premier League, FA Cup, and UEFA Champions League.
+
+One of Haaland’s most unforgettable performances came against RB Leipzig in the Champions League Round of 16, where he scored five goals in one match, joining Lionel Messi and Luiz Adriano as the only players ever to do so. His blend of physical power, precision, and relentless instinct in front of goal left defenders helpless and fans amazed.
+
+Beyond his goal-scoring numbers, Haaland’s mentality stands out. He is known for his laser-like focus, humility off the pitch, and fierce competitive spirit on it. Despite being one of football’s biggest stars, Haaland maintains a calm and composed personality, letting his performances speak for themselves. His dedication to improvement and his understanding of positioning make him far more than just a powerful finisher — he’s an intelligent, tactical striker who reads the game as well as anyone.
+
+In Manchester City’s system, Haaland became the final piece of Pep Guardiola’s puzzle — the clinical forward City had been missing. His partnership with Kevin De Bruyne became one of the most lethal duos in football, combining precision passing with unstoppable finishing. Every time he steps onto the field, there’s a sense that something special is about to happen.
+
+Haaland’s rise has been rapid, but it’s only the beginning. Still in his early twenties, he has already won multiple league titles, domestic cups, and a Champions League trophy. He’s broken records previously thought impossible — and he shows no signs of slowing down.
+
+Erling Haaland represents the future of football — a new generation of forwards combining physicality, intelligence, and ruthless efficiency. His journey from a small town in Norway to lifting the Champions League trophy at the pinnacle of European football is a story of talent, hard work, and unstoppable ambition.
+
+In a sport that has seen legends like Cristiano Ronaldo and Lionel Messi dominate for nearly two decades, Haaland stands as the next great force — a phenomenon built for goals, glory, and greatness.</p>
                 </div>
             </a>
 
@@ -664,8 +743,28 @@
             <a href="timer1.html?scp_link=https://buzzheavier.com/8iuc1mgznanv" class="card">
                 <img src="images/Neymar_vs_Coritiba_A_2012_WEBSITECOVER_00000_00000.webp" alt="Scene 4">
                 <div class="card-body">
-                    <h5 class="card-title">Comps 4</h5>
-                    <p class="card-text">More cinematic beauty.</p>
+                    <h5 class="card-title">WHO IS NEYMAR JR?</h5>
+                    <p class="card-text">Neymar da Silva Santos Júnior, famously known as Neymar Jr, is a Brazilian professional footballer celebrated for his flair, creativity, and extraordinary skill on the ball. Born on February 5, 1992, in Mogi das Cruzes, São Paulo, Brazil, Neymar has become one of the most talented and entertaining footballers of the modern era. His combination of speed, technique, and instinctive playmaking has made him a global icon and one of the defining figures of 21st-century football.
+
+Neymar’s journey began in the youth ranks of Santos FC, the same club that produced Brazilian legends like Pelé. Even as a teenager, his dazzling dribbles and fearless creativity made him stand out. At just 17 years old, he made his professional debut for Santos and quickly became the team’s star player. His performances helped Santos win the Copa Libertadores in 2011 — the club’s first since Pelé’s era — and earned him global recognition as Brazil’s next big superstar.
+
+By 2013, Neymar’s talent had drawn the attention of the biggest clubs in the world, and he completed a high-profile move to FC Barcelona. Joining a team that already included Lionel Messi and Luis Suárez, Neymar became part of the legendary attacking trio known as “MSN.” Together, they formed one of the most feared frontlines in football history.
+
+During his time at Barcelona, Neymar showcased his full range of abilities — breathtaking dribbles, precise finishing, and stunning creativity. The 2014–2015 season was the pinnacle of his career with the Catalan club. He played a crucial role in helping Barcelona achieve the historic treble, winning La Liga, the Copa del Rey, and the UEFA Champions League. Neymar scored in the Champions League final against Juventus and finished the campaign as one of Europe’s top scorers.
+
+Neymar wasn’t just a scorer — he was a showman. His samba style, filled with tricks, flicks, and fearless one-on-one play, brought joy and excitement to fans worldwide. Yet behind the flair was a hardworking and determined athlete, always striving to improve and carry the weight of expectations that come with being Brazil’s number 10.
+
+In 2017, Neymar made a record-breaking transfer to Paris Saint-Germain (PSG) for €222 million, becoming the most expensive player in football history — a record that still stands. The move was seen as his attempt to step out of Messi’s shadow and lead a team of his own. At PSG, Neymar continued to deliver brilliance, guiding the club to multiple Ligue 1 titles and their first-ever Champions League final in 2020.
+
+Despite facing injuries that sidelined him at crucial moments, Neymar’s impact at PSG was undeniable. His chemistry with Kylian Mbappé and Lionel Messi during their time together at the club turned PSG into one of the most entertaining teams in world football. His dribbling, vision, and creativity often made the difference in tight matches, especially in European competitions.
+
+For Brazil, Neymar has carried the hopes of an entire nation since his teenage years. He led the national team to victory in the 2013 FIFA Confederations Cup and the 2016 Olympic Games in Rio, where he scored the winning penalty in the final — a moment that brought tears to his eyes and joy to millions of fans. With over 70 international goals, Neymar stands among Brazil’s all-time top scorers, alongside legends like Pelé and Ronaldo Nazário.
+
+Beyond statistics, Neymar represents the soul of Brazilian football — a blend of passion, artistry, and emotion. His ability to turn a game around with a single touch, his confidence to take on defenders, and his love for expressing himself on the pitch make him one of the most beloved and controversial figures in the sport.
+
+In 2023, Neymar made another bold move by joining Al Hilal in Saudi Arabia, opening a new chapter in his illustrious career. Though injuries continued to challenge him, his influence on global football remains immense. His career has been a mix of magic, brilliance, and emotion — the story of a player who plays not just to win, but to entertain and inspire.
+
+Neymar Jr’s legacy is already cemented. He is not just one of the best Brazilian players of his generation but also one of football’s most creative and captivating talents. Whether in Santos, Barcelona, Paris, or wearing the yellow of Brazil, Neymar has always been more than a footballer — he is an artist with the ball, a symbol of joy, and a reminder that football, at its heart, is meant to be beautiful.</p>
                 </div>
             </a>
 
@@ -673,24 +772,60 @@
             <a href="timer1.html?scp_link=https://buzzheavier.com/ojw2wcwpwafa" class="card">
                 <img src="images/Real_Madrid_Vs_Juventus_2018POST-WEB_00000.webp" alt="Scene 5">
                 <div class="card-body">
-                    <h5 class="card-title">Real Madrid Vs Juventus 2018</h5>
-                    <p class="card-text">More cinematic beauty.</p>
+                    <h5 class="card-title">Real Madrid vs Juventus 2018 – Ronaldo’s Iconic Bicycle Kick</h5>
+                    <p class="card-text">On April 3, 2018, football fans around the world witnessed one of the most unforgettable moments in UEFA Champions League history — Cristiano Ronaldo’s stunning bicycle kick against Juventus in the quarterfinals. The match, played at the Allianz Stadium in Turin, wasn’t just a game; it was a display of class, power, and perfection that defined Ronaldo’s legendary career.
+
+Real Madrid entered the first leg against Juventus as defending champions, facing a side they had beaten in the 2017 final. From the opening whistle, Madrid looked dangerous, and it didn’t take long for Ronaldo to make an impact. In the third minute, he opened the scoring with a typical poacher’s finish after a brilliant cross from Dani Carvajal — giving Madrid the early advantage.
+
+But what happened next in the second half would go down in football folklore. In the 64th minute, Carvajal sent in another cross into the box. Ronaldo, reading the ball with perfect timing, launched himself into the air — executing a flawless bicycle kick that left Gianluigi Buffon rooted to the spot. The ball rocketed into the top corner, and for a brief moment, even Juventus fans stood up and applauded in admiration. It was a rare sight: an entire stadium, including rival supporters, giving a standing ovation to an opposing player.
+
+Ronaldo’s second goal wasn’t just beautiful; it symbolized his dedication, athleticism, and mastery of the big stage. His leap measured over 2.3 meters high, showcasing his superhuman strength and precision. The goal was later voted UEFA Goal of the Season, and many consider it the greatest strike in Champions League history.
+
+Real Madrid went on to win the match 3–0, with Marcelo adding the third. That night in Turin cemented Ronaldo’s status as a football icon who could rise above any challenge. Even Buffon later admitted that the goal was “a masterpiece.”
+
+For Ronaldo, it wasn’t just another goal — it was a statement of greatness, a reminder of why he is considered one of the most complete forwards to ever play the game. His bicycle kick against Juventus remains a timeless moment — a piece of football art that will be replayed and remembered for generations.</p>
                 </div>
             </a>
 
             <a href="timer1.html?scp_link=https://buzzheavier.com/sc5irr1sx8ux" class="card">
                 <img src="images/Lionel_Messi_vs_Manchester_United_POST-WEB_00000.webp" alt="Scene 5">
                 <div class="card-body">
-                    <h5 class="card-title">Real Madrid Vs Juventus 2018</h5>
-                    <p class="card-text">More cinematic beauty.</p>
+                    <h5 class="card-title">Lionel Messi vs Manchester United – UEFA Champions League Final 2011</h5>
+                    <p class="card-text">On May 28, 2011, at Wembley Stadium, the world witnessed one of Lionel Messi’s greatest performances — a masterclass that defined the peak of Pep Guardiola’s Barcelona and cemented Messi’s status as the best player in the world. The 2011 UEFA Champions League Final between Barcelona and Manchester United wasn’t just a clash between two European giants — it was a showcase of beautiful football, with Messi at the heart of it all.
+
+The match began with Manchester United pressing high and showing great intensity, but Barcelona’s rhythm soon took control. With Xavi and Iniesta orchestrating play in midfield, and Messi drifting between the lines, United found it nearly impossible to keep up. In the 27th minute, Pedro gave Barcelona the lead after a perfect through ball from Xavi, but Wayne Rooney equalized just seven minutes later to make it 1–1.
+
+Then came the moment that defined the night. In the 54th minute, Lionel Messi picked up the ball outside the box. With a quick shuffle of his feet, he created just enough space and unleashed a powerful low shot that zipped past Edwin van der Sar into the bottom corner. It was pure precision — no backlift, no hesitation, just brilliance. Van der Sar, one of the greatest goalkeepers of his generation, could only watch as the ball struck the net.
+
+That goal wasn’t just a score — it was a statement. It showcased Messi’s genius: his vision, composure, and lethal accuracy. Wembley erupted, and Manchester United’s defense began to crumble under Barcelona’s relentless passing and movement. In the 69th minute, David Villa curled in a third goal to seal a 3–1 victory for Barcelona.
+
+Messi’s performance that night was mesmerizing. He wasn’t just scoring — he was everywhere. Dropping deep to collect the ball, gliding past defenders, linking up with Xavi and Iniesta, and constantly creating danger. Manchester United’s midfield and defense simply couldn’t contain him. Sir Alex Ferguson himself later admitted, “They’re the best team we’ve ever faced.”
+
+Messi was deservedly named Man of the Match, and that final is often remembered as one of the most complete team performances in football history — with Messi at its center. His goal and overall play at Wembley symbolized the perfect harmony of technique, intelligence, and magic that made him a once-in-a-generation talent.
+
+That night in London, Messi didn’t just win another Champions League — he etched his name into football immortality.</p>
                 </div>
             </a>
 
             <a href="timer1.html?scp_link=https://buzzheavier.com/o19kndzzimyg" class="card">
                 <img src="images/Ronaldo_Vs_Juventus_2017_POST-WEB_00000.webp" alt="Scene 5">
                 <div class="card-body">
-                    <h5 class="card-title">Real Madrid Vs Juventus 2018</h5>
-                    <p class="card-text">More cinematic beauty.</p>
+                    <h5 class="card-title">Cristiano Ronaldo vs Juventus – UEFA Champions League Final 2017</h5>
+                    <p class="card-text">On June 3, 2017, at the Millennium Stadium in Cardiff, Cristiano Ronaldo delivered one of his most complete and decisive performances on the biggest stage — the UEFA Champions League Final against Juventus. It was a night that not only crowned Real Madrid as European champions once again but also showcased Ronaldo at his ruthless, clinical best.
+
+Real Madrid entered the final as defending champions, while Juventus had been nearly unbeatable all season, boasting one of the toughest defenses in Europe led by Giorgio Chiellini, Leonardo Bonucci, and Gianluigi Buffon. But none of that mattered to Ronaldo — he had a mission: to lead Madrid to history by becoming the first club to win back-to-back Champions League titles in the modern era.
+
+From the very start, Madrid looked sharp and composed. In the 20th minute, Ronaldo opened the scoring with a perfectly executed goal that defined his precision and movement. Receiving a quick pass from Dani Carvajal at the edge of the box, he struck a first-time shot with his right foot that deflected slightly off Bonucci and went past Buffon into the far corner. It was a striker’s goal — intelligent positioning, quick reaction, and a lethal finish.
+
+Juventus equalized shortly after with a brilliant overhead kick from Mario Mandžukić, one of the best goals ever seen in a Champions League final. But that only fueled Madrid’s determination. In the second half, Casemiro restored Madrid’s lead with a powerful long-range effort, and then — once again — Cristiano Ronaldo rose to the occasion.
+
+In the 64th minute, Luka Modrić broke down the right side and delivered a low cross into the box. Ronaldo, always in the right place at the right time, made a sharp run to the near post and slotted the ball past Buffon with his trademark composure. It was his second goal of the night, and it effectively sealed the victory for Real Madrid.
+
+Madrid went on to win 4–1, with Asensio adding a late goal. Ronaldo’s brace made him the top scorer of the tournament for the fifth consecutive season, finishing with 12 goals in the campaign. He was named Man of the Match, a fitting recognition for yet another decisive performance in a final.
+
+That night, Ronaldo demonstrated everything that made him one of the greatest of all time — movement, power, precision, leadership, and an unmatched hunger for glory. Against a Juventus side that had conceded just three goals throughout the entire tournament before the final, Ronaldo alone scored two and dismantled their defense.
+
+The 2017 final in Cardiff wasn’t just another victory for Real Madrid; it was the crowning moment of Ronaldo’s dominance in Europe — a performance that reminded the world why he was the ultimate big-game player, a legend built for the brightest lights and the toughest opponents.</p>
                 </div>
             </a>
 
@@ -715,10 +850,39 @@
         </main>
         
         <footer>
-            <div class="footer-content">
-                <p class="copyright">&copy; 2025 Flizzyr-7-Comps. All rights reserved.</p>
-            </div>
-        </footer>
+    <div class="footer-content">
+
+        <!-- Footer Links -->
+        <div style="
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+        ">
+            <a href="faq.html" 
+               style="color: var(--accent); text-decoration: none; font-weight: 500;">
+               FAQ
+            </a>
+
+            <a href="terms.html" 
+               style="color: var(--accent); text-decoration: none; font-weight: 500;">
+               Terms & Conditions
+            </a>
+
+            <a href="privacy.html" 
+               style="color: var(--accent); text-decoration: none; font-weight: 500;">
+               Privacy Policy
+            </a>
+        </div>
+
+        <!-- Copyright -->
+        <p class="copyright">
+            &copy; 2025 Flizzyr-7-Comps. All rights reserved.
+        </p>
+
+    </div>
+</footer>
         
         <div class="theme-toggle">
             <i class="fas fa-moon"></i>
